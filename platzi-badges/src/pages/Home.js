@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./styles/Home.css";
 import logo from "../images/platziconf-logo.svg";
@@ -15,9 +16,9 @@ class Home extends React.Component {
               <h4 className="text-uppercase mt-2">Print your badges</h4>
               <p>The easiest way to manage you conference</p>
               <div className="container-fluid text-center">
-                <a href="/" className="btn btn-primary">
+                <Link to="/badges" className="btn btn-primary">
                   Start now
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-7">
