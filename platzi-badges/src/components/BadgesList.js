@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./styles/BadgesList.css";
 import twitterImage from "../images/twitter.svg";
 
+import Gravatar from "./Gravatar";
+
 class BadgesList extends React.Component {
   render() {
     if (this.props.badges.length === 0) {
@@ -25,8 +27,8 @@ class BadgesList extends React.Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-3">
-                    <img
-                      src={badge.avatarUrl}
+                    <Gravatar
+                      email={badge.email}
                       className="BadgesListItem__avatar"
                       alt="Avatar"
                     />
