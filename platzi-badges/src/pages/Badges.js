@@ -6,6 +6,7 @@ import confLogo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList";
 import PageLoading from "../components/PageLoading";
 import PageError from "../components/PageError";
+import MiniLoader from "../components/MiniLoader";
 import api from "../api";
 
 class Badges extends React.Component {
@@ -26,7 +27,9 @@ class Badges extends React.Component {
         data: undefined
       });
     }, 3000);*/
-    this.fetchData();
+
+    //Polling
+    this.intervalId = setInterval(this.fetchData, 5000);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -45,11 +48,12 @@ class Badges extends React.Component {
   }
 
   componentWillUnmount() {
+    clearInterval(this.intervalId);
     console.log("6. componentWillUnmount()");
     //clearTimeout(this.timeoutId);
   }
 
-  async fetchData() {
+  fetchData = async () => {
     this.setState({ loading: true, error: null });
     try {
       let data = await api.badges.list();
@@ -57,12 +61,12 @@ class Badges extends React.Component {
     } catch (error) {
       this.setState({ loading: false, error: error });
     }
-  }
+  };
 
   render() {
     console.log("2/4. render()");
 
-    if (this.state.loading) {
+    if (this.state.loading && this.state.data === undefined) {
       return <PageLoading />;
     }
 
@@ -94,6 +98,7 @@ class Badges extends React.Component {
           <div className="Badges__list">
             <div className="Badges__container">
               <BadgesList badges={this.state.data} />
+              {this.state.loading && <MiniLoader />}
             </div>
           </div>
         </div>

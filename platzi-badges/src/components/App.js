@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import BadgeNew from "../pages/BadgeNew";
 import Badges from "../pages/Badges";
 import NotFound from "../pages/NotFound";
+import BadgeEdit from "../pages/BadgeEdit";
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
             <Route path="/" exact component={Home} />
             <Route path="/badges" exact component={Badges} />
             <Route path="/badges/new" exact component={BadgeNew} />
+            <Route path="/badges/:badgeId/edit" exact component={BadgeEdit} />
             <Route component={NotFound} />
           </Switch>
         </Layout>
