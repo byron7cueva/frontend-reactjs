@@ -7,8 +7,7 @@ import BadgeNew from "../pages/BadgeNew";
 import Badges from "../pages/Badges";
 import NotFound from "../pages/NotFound";
 import BadgeEdit from "../pages/BadgeEdit";
-import BadgeDetails from "../pages/BadgeDetails";
-import Router from "react-router-dom/Router";
+import BadgeDetailsContainer from "../pages/BadgeDetailsContainer";
 
 class App extends React.Component {
   render() {
@@ -19,7 +18,11 @@ class App extends React.Component {
             <Route path="/" exact component={Home} />
             <Route path="/badges" exact component={Badges} />
             <Route path="/badges/new" exact component={BadgeNew} />
-            <Route path="/badges/:badgeId" exact component={BadgeDetails} />
+            <Route
+              path="/badges/:badgeId"
+              exact
+              component={BadgeDetailsContainer}
+            />
             <Route path="/badges/:badgeId/edit" exact component={BadgeEdit} />
             <Route component={NotFound} />
           </Switch>
