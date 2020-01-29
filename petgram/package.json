@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack",
-        "dev": "webpack-dev-server",
+        "dev": "webpack-dev-server --history-api-fallback",
         "lint": "standard",
         "now-build": "npm run build"
     },
@@ -27,6 +27,7 @@
         "webpack-dev-server": "^3.10.1"
     },
     "dependencies": {
+        "@reach/router": "^1.2.1",
         "apollo-boost": "^0.4.7",
         "apollo-cache-inmemory": "^1.6.5",
         "apollo-link-http": "^1.5.16",
