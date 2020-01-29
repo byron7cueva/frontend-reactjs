@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Context from '../Context'
+
+import { UserForm } from '../components/UserForm'
 
 export const NotRegisterUser = () => (
   <Context.Consumer>
     {({ activateAuth }) => {
       return (
-        <form onSubmit={activateAuth}>
-          <button>Iniciar sesion</button>
-        </form>
+        <Fragment>
+          <UserForm onSubmit={activateAuth} title="Registrarse" />
+          <UserForm onSubmit={activateAuth} title="Iniciar sesión" />
+        </Fragment>
       )
     }}
   </Context.Consumer>
