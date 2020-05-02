@@ -1,0 +1,17 @@
+{
+  "name": "primer-sitio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^2.19.45",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
