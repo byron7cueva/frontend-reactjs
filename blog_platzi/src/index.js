@@ -4,16 +4,19 @@ import './index.css';
 import App from './components/App';
 // import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
+import reduxThunk from 'redux-thunk'
 
 // Creando store
 const store = createStore(
    // Todos los reducer
   reducers,
   // Estado inicial
-  {}
+  {},
+  // Agregando middleware para hacer las llamadas asincronas
+  applyMiddleware(reduxThunk)
 )
 
 ReactDOM.render(

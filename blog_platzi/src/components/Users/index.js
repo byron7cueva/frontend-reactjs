@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import { getAll } from '../../actions/usuariosActions'
 
-export class Users extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      users: []
-    }
-  }
+class UsersComponent extends Component {
 
   ponerFilas = () => (
-    this.state.users.map(user => (
+    this.props.users.map(user => (
       <tr key={ user.id }>
         <td>{ user.name }</td>
         <td>{ user.email }</td>
@@ -20,11 +14,9 @@ export class Users extends Component {
     ))
   )
 
-  async componentDidMount() {
-    const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users');
-    this.setState({
-      users: respuesta.data
-    })
+  componentDidMount() {
+    // Llamando al action creator
+    this.props.getAll()
   }
 
   render() {
@@ -44,6 +36,20 @@ export class Users extends Component {
     )
   }
 }
+
+// Para mapear el estado a las props
+const mapStateToProps = (reducers) => {
+  return reducers.usersReducer
+}
+
+// Conectando el reducer al componente
+// Se debe indicar que reducer se va utilizar
+// La lista de las acciones que se le va aplicar
+// El componente al cual se lo va aplicar
+// connect(reducer a utilizar, actions)(componente)
+export const Users = connect(mapStateToProps, {
+  getAll
+})(UsersComponent)
 
 // stateless -> Componente funcional
 // statefull -> Componente de clase
