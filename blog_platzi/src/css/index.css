@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+.table {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px 0;
+}
+
+.menu {
+  background-color: #253A46;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.menu a {
+  color: white;
+  padding-right: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+.rojo {
+  color: red;
+}
+
+.margen {
+  margin: 100px;
+}

@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAll } from '../../actions/usuariosActions'
+import { Spinner } from '../General/Spinner';
+import { Fatal } from '../General/Fatal'
+import { Table } from './Table'
 
 class UsersComponent extends Component {
 
-  ponerFilas = () => (
-    this.props.users.map(user => (
-      <tr key={ user.id }>
-        <td>{ user.name }</td>
-        <td>{ user.email }</td>
-        <td>{ user.website }</td>
-      </tr>
-    ))
-  )
+  ponerContenido = () => {
+    if (this.props.loading) {
+      return <Spinner />
+    }
+
+    if (this.props.error) {
+      return <Fatal message={ this.props.error }/>
+    }
+
+    return (
+      <Table />
+    )
+  }
 
   componentDidMount() {
     // Llamando al action creator
@@ -21,18 +28,10 @@ class UsersComponent extends Component {
 
   render() {
     return (
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Enlace</th>
-          </tr>
-        </thead>
-        <tbody>
-        { this.ponerFilas() }
-        </tbody>
-      </table>
+      <div>
+        <h1>Usuarios</h1>
+        { this.ponerContenido() }
+      </div>
     )
   }
 }
