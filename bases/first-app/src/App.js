@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { FilterableProductTable } from './components/FilterableProductTable'
+import { AppToolbar } from './components/ToolApp'
 
 function App() {
   return (
-    <FilterableProductTable />
+    <AppToolbar />
   );
 }
 
