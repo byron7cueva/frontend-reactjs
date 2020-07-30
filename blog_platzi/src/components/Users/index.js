@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getAll } from '../../actions/usuariosActions'
+import { getAll } from '../../actions/usersActions'
 import { Spinner } from '../General/Spinner';
 import { Fatal } from '../General/Fatal'
 import { Table } from './Table'
@@ -22,8 +22,10 @@ class UsersComponent extends Component {
   }
 
   componentDidMount() {
-    // Llamando al action creator
-    this.props.getAll()
+    if (!this.props.users.length) {
+      // Llamando al action creator
+      this.props.getAll()
+    }
   }
 
   render() {

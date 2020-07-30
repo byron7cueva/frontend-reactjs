@@ -19,7 +19,8 @@ export default ( state = INITIAL_STATE, action) => {
       return {
         ...state,
         users: action.payload,
-        loading: false
+        loading: false,
+        error: ''
       }
 
     case LOADING:

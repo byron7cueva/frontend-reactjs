@@ -34,3 +34,12 @@ body {
 .margen {
   margin: 100px;
 }
+
+.pub__title {
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+
+li {
+  margin: 15px 0px;
+}

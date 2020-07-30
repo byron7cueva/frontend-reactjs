@@ -22,7 +22,7 @@ export const getAll = () => {
     } catch(error) {
       dispatch({
         type: ERROR,
-        payload: 'Algo salio mal, intente más tarde.'
+        payload: 'Información de usuario no disponible.'
       })
     }
   }
