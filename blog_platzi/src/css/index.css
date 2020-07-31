@@ -43,3 +43,13 @@ body {
 li {
   margin: 15px 0px;
 }
+
+.task__container {
+  font-size: 20px;
+  margin-left: 50px;
+  margin-bottom: 70px;
+}
+
+.m-left {
+  margin-left: 20px;
+}
