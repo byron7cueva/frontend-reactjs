@@ -23,3 +23,7 @@ Ejemplo:
 /product/nombreParametro
 carpeta product
   [nombreParametro].js
+
+## Code Splitting
+
+* Agregar hash a los assets para solucionar el problema de cache que tienen los navegadores.

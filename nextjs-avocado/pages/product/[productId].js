@@ -5,8 +5,7 @@ import { useRouter } from 'next/router'
 // Hook que nos permite hacer uso del touter que tiene next
 
 const Product = () => {
-  const router = useRouter()
-  const { query: { productId }} = router
+  const { query: { productId }} = useRouter()
 
   return (
     <div>
