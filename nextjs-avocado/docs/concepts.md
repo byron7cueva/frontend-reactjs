@@ -15,3 +15,11 @@ index.js es el home o página inicial de la aplicación.
 ### Routing based on file system
 
 Next.js va hacer routing dependiendo de lo que nosotros pongamos dentro de pages.
+
+## Rutas Dinámicas
+
+*  Se crean poniendoles como nombre al archivo entre  corchetes [].js. 
+Ejemplo:
+/product/nombreParametro
+carpeta product
+  [nombreParametro].js
