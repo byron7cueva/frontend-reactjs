@@ -113,3 +113,6 @@ Next.js nos ofrece 3 formas de poder integrar CSS (Built-in CSS Nex.js).
 - Si inspeccionamos el nombre de la clase que nosotros creamos no corresponde al nombre que aparece aplicado al elemento. Next.js genera un nuevo nombre con un hash para evitar la colicion de nombres de clases.
 
 3. CSS-in-JS Styles JSX (Next.js - Vercel)
+
+- Dentro del elemento del componente se define un tag `<style jsx>` y dentro de este a traves de de template literal se define los estilos que se desea aplicar al componente.
+- De igual manera une un hash al nombre de la clase que se define en css, para evitar coliciones de nombre.
