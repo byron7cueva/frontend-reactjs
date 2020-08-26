@@ -71,18 +71,27 @@ chrome://inspect
 
 ## Extender Next JS
 
-* La aplicacion se renderiza dentro del siguiente de arbol de componentes
+- La aplicacion se renderiza dentro del siguiente de arbol de componentes
 
-- Document: Contiene toda la estructura HTML
+* Document: Contiene toda la estructura HTML
   - App: Engloba la aplicación
     - Nuestra Aplicación / pages
 
 ### Extendiendo Document:
-* Para eso se debe agregar un archivo llamado _document y Next.js nos ofrece
+
+- Para eso se debe agregar un archivo llamado \_document y Next.js nos ofrece
   un template con las configuraciones basicas que se pueden hacer ahi.
-* Este se lo debe implementar cuando un requerimiento sea: Agregar el favicon, fuentes, estilos, scrips js externos. Agregar elementos html que quermos que esten por fuera de la aplicación react. Agregar control en el <body>, como puede ser asignar una clase
-* Esta es la forma de extender el documento de html cosas que no lo podemos hacer desde dentro de la aplicacion React.
+- Este se lo debe implementar cuando un requerimiento sea: Agregar el favicon, fuentes, estilos, scrips js externos. Agregar elementos html que quermos que esten por fuera de la aplicación react. Agregar control en el <body>, como puede ser asignar una clase
+- Esta es la forma de extender el documento de html cosas que no lo podemos hacer desde dentro de la aplicacion React.
 
 ### Extend App
-* Next.js nos ofrece un custom App, que es un template para poder iniciar a modificar el App.
-* Esta configuración debe ir en un archivo _app, dentro de la carpeta pages.
+
+- Next.js nos ofrece un custom App, que es un template para poder iniciar a modificar el App.
+- Esta configuración debe ir en un archivo \_app, dentro de la carpeta pages.
+
+## Import Hell
+
+Es cuando a medida que va creciendo la aplicación los imports a algun módulo se ven asi
+import Modulo from '../../../../component/Modulo'
+Esto se puede resolver a traves de los Path Aliases, eso se puede configurar tanto para JavaScript y TypeScript
+Actualizar a VSC con Ctrl + Shift + P y seleccionar Restart TS Server

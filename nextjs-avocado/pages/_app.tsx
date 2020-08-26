@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app'
-import Layout from '../components/Layout/Layout'
+import Layout from '@components/Layout/Layout'
 
-function MyApp({ Component, pageProps}: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   // Este componente es perfecto para utilizar Providers - Context englobando el componente
   // Para aplicar un Layout
   // Para pasar props adicionales
