@@ -77,8 +77,8 @@ chrome://inspect
   - Document
     - Nuestra Aplicación
 
-- Modificando el Documento:
-  Para eso se debe agregar un archivo llamado \_document y Next.js nos ofrece
+### Extendiendo Document:
+* Para eso se debe agregar un archivo llamado \_document y Next.js nos ofrece
   un template con las configuraciones basicas que se pueden hacer ahi.
-  Este se lo debe implementar cuando un requerimiento sea: Agregar el favicon, fuentes, estilos, scrips js externos. Agregar elementos html que quermos que esten por fuera de la aplicación react. Agregar control en el <body>, como puede ser asignar una clase
-- Esta es la forma de extender el documento de html cosas que no lo podemos hacer desde dentro de la aplicacion React.
+* Este se lo debe implementar cuando un requerimiento sea: Agregar el favicon, fuentes, estilos, scrips js externos. Agregar elementos html que quermos que esten por fuera de la aplicación react. Agregar control en el <body>, como puede ser asignar una clase
+* Esta es la forma de extender el documento de html cosas que no lo podemos hacer desde dentro de la aplicacion React.
