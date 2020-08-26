@@ -56,3 +56,15 @@ git checkout -b nombre-branch nombre-tag
 
 - Se debe crear una carpeta con el nombre de api, dentro de la carpeta pages. Para construit las rutas del api se debe hacer de forma similar que el routing de las paginas.
 - En cada archivo se debe retornar una funcion la cual recibe como parametros (request, response)
+
+## Config debuggin
+
+- Cambiar la tarea de dev a:
+
+```json
+"dev": "NODE_OPTIONS='--inspect' next",
+```
+
+- Abrir desde chrome la url
+
+chrome://inspect
