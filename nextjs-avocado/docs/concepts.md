@@ -37,3 +37,7 @@ carpeta product
 ## Enlazando páginas
 
 Link: Para crear links y enlazar las páginas
+
+## Prefetching Automático
+
+* Al pasar el mouse sobre el link, se descarga esa página.
