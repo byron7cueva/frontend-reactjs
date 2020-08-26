@@ -101,5 +101,15 @@ Actualizar a VSC con Ctrl + Shift + P y seleccionar Restart TS Server
 Next.js nos ofrece 3 formas de poder integrar CSS (Built-in CSS Nex.js).
 
 1. Global CSS (.css)
+
+- Se lo debe de importar desde el \_app
+- Entonces ya podriamos proceder a aplicar las clases del CSS en donde necesitemos
+
 2. Module CSS (.module.css)
+
+- Se aplica para cada componente específico.
+- Se lo debe poner al lado del componente que lo utiliza
+- Al aplicarlo se lo puede hacer importando el modulo y a través de ese objeto con . acceder a las clases, el cual sera parado a la propiedad className del componente a aplicar.
+- Si inspeccionamos el nombre de la clase que nosotros creamos no corresponde al nombre que aparece aplicado al elemento. Next.js genera un nuevo nombre con un hash para evitar la colicion de nombres de clases.
+
 3. CSS-in-JS Styles JSX (Next.js - Vercel)
