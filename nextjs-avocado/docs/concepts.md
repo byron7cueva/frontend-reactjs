@@ -27,3 +27,9 @@ carpeta product
 ## Code Splitting
 
 * Agregar hash a los assets para solucionar el problema de cache que tienen los navegadores.
+
+##  Pre-rendering
+
+* Server side rendering (SSR).
+* Es prerenderizado cuando el contido principal de la página ya viene renderizado en el html en la primer respuesta.
+* Es importante cuando nos importa el SEO (Search Engine Optimization), optimización para buscadores.
