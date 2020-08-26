@@ -95,3 +95,11 @@ Es cuando a medida que va creciendo la aplicación los imports a algun módulo s
 import Modulo from '../../../../component/Modulo'
 Esto se puede resolver a traves de los Path Aliases, eso se puede configurar tanto para JavaScript y TypeScript
 Actualizar a VSC con Ctrl + Shift + P y seleccionar Restart TS Server
+
+## Integrar CSS
+
+Next.js nos ofrece 3 formas de poder integrar CSS (Built-in CSS Nex.js).
+
+1. Global CSS (.css)
+2. Module CSS (.module.css)
+3. CSS-in-JS Styles JSX (Next.js - Vercel)
