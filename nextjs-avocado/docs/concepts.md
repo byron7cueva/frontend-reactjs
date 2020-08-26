@@ -1,6 +1,7 @@
 # Next.js
 
 ## Hot Realoadind
+
 ## Fast Refresh
 
 ## Páginas Básicas
@@ -18,21 +19,21 @@ Next.js va hacer routing dependiendo de lo que nosotros pongamos dentro de pages
 
 ## Rutas Dinámicas
 
-*  Se crean poniendoles como nombre al archivo entre  corchetes [].js. 
-Ejemplo:
-/product/nombreParametro
-carpeta product
+- Se crean poniendoles como nombre al archivo entre corchetes [].js.
+  Ejemplo:
+  /product/nombreParametro
+  carpeta product
   [nombreParametro].js
 
 ## Code Splitting
 
-* Agregar hash a los assets para solucionar el problema de cache que tienen los navegadores.
+- Agregar hash a los assets para solucionar el problema de cache que tienen los navegadores.
 
-##  Pre-rendering
+## Pre-rendering
 
-* Server side rendering (SSR).
-* Es prerenderizado cuando el contido principal de la página ya viene renderizado en el html en la primer respuesta.
-* Es importante cuando nos importa el SEO (Search Engine Optimization), optimización para buscadores.
+- Server side rendering (SSR).
+- Es prerenderizado cuando el contido principal de la página ya viene renderizado en el html en la primer respuesta.
+- Es importante cuando nos importa el SEO (Search Engine Optimization), optimización para buscadores.
 
 ## Enlazando páginas
 
@@ -40,4 +41,18 @@ Link: Para crear links y enlazar las páginas
 
 ## Prefetching Automático
 
-* Al pasar el mouse sobre el link, se descarga esa página.
+- Al pasar el mouse sobre el link, se descarga esa página.
+
+Descargar tags
+git fetch --tags
+
+Ver tags
+git tag
+
+Crear un branch a partir de un tag
+git checkout -b nombre-branch nombre-tag
+
+## API
+
+- Se debe crear una carpeta con el nombre de api, dentro de la carpeta pages. Para construit las rutas del api se debe hacer de forma similar que el routing de las paginas.
+- En cada archivo se debe retornar una funcion la cual recibe como parametros (request, response)
