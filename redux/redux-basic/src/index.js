@@ -1,1 +1,1 @@
-console.log('Hola Mundo')
+import './assets/css/styles.css'
