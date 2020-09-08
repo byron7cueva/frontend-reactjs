@@ -68,6 +68,10 @@ module.exports = {
       }
     ]
   },
+  //History API Fallback
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new HtmlWebPackPlugin({
       //Template
