@@ -7,7 +7,8 @@ import App from './routes/App';
 import initialState from '../data/initialState.json';
 import reducer from './reducers';
 
-const store = createStore(reducer, initialState);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(reducer, initialState, composeEnhancers);
 
 ReactDOM.render(
   <Provider store={store}>

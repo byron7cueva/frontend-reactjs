@@ -10,7 +10,8 @@ module.exports = {
     //Donde se va guardar
     path: path.resolve(__dirname, 'dist'),
     //Ponerle un nombre al archivo principal
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   //Resolver las extensiones que va soportar el proyecto
   resolve: {

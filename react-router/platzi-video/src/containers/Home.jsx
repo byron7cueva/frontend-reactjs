@@ -3,20 +3,26 @@ import { connect } from 'react-redux';
 
 import '../assets/styles/App.scss';
 
+import Header from '../components/Header';
 import Search from '../components/Search';
 import Category from '../components/Category';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CorouselItem';
 
-const Home = ({ mylist, trends, originals }) => (
+const Home = ({ myList, trends, originals }) => (
   <>
-    <Search />
-    {mylist.length > 0 && (
+    <Header />
+    <Search isHome />
+    {myList.length > 0 && (
       <Category title="Mi Lista">
         <Carousel>
-          {mylist.map(item => (
+          {myList.map(item => (
             //Pasar los datos destructurando la imformacion
-            <CarouselItem key={item.id} {...item} />
+            <CarouselItem
+              key={item.id}
+              {...item}
+              isList
+            />
           ))}
         </Carousel>
       </Category>
@@ -48,7 +54,7 @@ const Home = ({ mylist, trends, originals }) => (
 
 const mapStateToProps = state => {
   return {
-    mylist: state.mylist,
+    myList: state.myList,
     trends: state.trends,
     originals: state.originals,
   };
