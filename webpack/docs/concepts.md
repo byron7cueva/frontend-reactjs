@@ -71,3 +71,12 @@ npm run build:dev -- -w
 
 * Cambiar el código dentro del navegador pero sin recargar la página.
 * Cargar solo las partes que necesitamos.
+
+## Babel
+
+### Presets
+
+* Son preconfiguraciones.
+* Para utilizar async/await se necesita instalar y configurar los siguientes plugins:
+  * @babel/plugin-transform-runtime: Como desarrollo
+  * @babel/runtime: Como producción.
