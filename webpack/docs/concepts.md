@@ -52,6 +52,7 @@ npx esta disponible desde la version 5.2 de npm
 * Es la funcionalidad que nos da webpack para poder interpretar algún tipo de archivo, como compilarlo, inyectarlo, etc.
 * css-loader: permite reconocer el import de un archivo css e interpretarlo.
 * style-loader: inyecta el css en el archivo html.
+* Desde la versión 4 no se requiere de un loader en especial para importar y usar archivos .json.
 
 ## Plugins
 
@@ -80,3 +81,4 @@ npm run build:dev -- -w
 * Para utilizar async/await se necesita instalar y configurar los siguientes plugins:
   * @babel/plugin-transform-runtime: Como desarrollo
   * @babel/runtime: Como producción.
+
