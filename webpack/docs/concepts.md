@@ -56,4 +56,6 @@ npx esta disponible desde la version 5.2 de npm
 ## Plugins
 
 * Van extender la funcionalidad de los loaders, como utilizarlo, moverlo manipularlo a un archivo.
+* mini-css-extract-plugin: extrae el codigo css y lo pone en una carpeta que le configuremos
+* html-webpack-plugin: Inyecta automáticamente los bundles en el archivo html.
 

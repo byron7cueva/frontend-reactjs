@@ -8,10 +8,13 @@
     "build:local": "webpack --mode production",
     "build:external": "webpack --config ./external/webpack.config.js",
     "build:multi": "webpack --config ./multi-entry-points/webpack.config.js",
-    "build:css": "webpack --config ./css-style-loader/webpack.config.js"
+    "build:css": "webpack --config ./css-style-loader/webpack.config.js",
+    "build:plugins": "webpack --config ./plugins/webpack.config.js"
   },
   "devDependencies": {
     "css-loader": "^4.3.0",
+    "html-webpack-plugin": "^4.4.1",
+    "mini-css-extract-plugin": "^0.11.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
