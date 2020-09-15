@@ -59,3 +59,15 @@ npx esta disponible desde la version 5.2 de npm
 * mini-css-extract-plugin: extrae el codigo css y lo pone en una carpeta que le configuremos
 * html-webpack-plugin: Inyecta automáticamente los bundles en el archivo html.
 
+Pasar un flag a una tarea de npm:
+
+En este caso se le esta pasando el flag watch al script.
+
+```shell
+npm run build:dev -- -w
+```
+
+### Hot modulo replacement
+
+* Cambiar el código dentro del navegador pero sin recargar la página.
+* Cargar solo las partes que necesitamos.
