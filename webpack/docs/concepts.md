@@ -46,3 +46,14 @@ npx esta disponible desde la version 5.2 de npm
 ### webpack.config.js
 
 * Aqui se utiliza los modulos a traves de common.js, que es por defecto en node.js.
+
+## Loaders
+
+* Es la funcionalidad que nos da webpack para poder interpretar algún tipo de archivo, como compilarlo, inyectarlo, etc.
+* css-loader: permite reconocer el import de un archivo css e interpretarlo.
+* style-loader: inyecta el css en el archivo html.
+
+## Plugins
+
+* Van extender la funcionalidad de los loaders, como utilizarlo, moverlo manipularlo a un archivo.
+
