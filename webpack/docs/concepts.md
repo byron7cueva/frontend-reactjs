@@ -82,3 +82,7 @@ npm run build:dev -- -w
   * @babel/plugin-transform-runtime: Como desarrollo
   * @babel/runtime: Como producción.
 
+### peerDpendencies
+
+* Son dependencias que ya deben estar previamente instaladas en el proyecto.
+
