@@ -1,21 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
+const TersertJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
   entry: {
-    // Dependencias comunes en toda la aplicacion
-    // Se va llamar modules
     modules: [
       'react',
-      'react-dom'
+      'react-dom',
+      'react-router-dom'
     ]
   },
   output: {
     path:path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js',
-    // Como se va enlzar de manera global el modulo con la aplicacion
+    filename: 'js/[name].[hash].dll.js',
     library: '[name]'
+  },
+  optimization: {
+    minimizer: [
+      new TersertJSPlugin(),
+      new OptimizeCSSAssetsPlugin()
+    ]
   },
   plugins: [
     new webpack.DllPlugin({

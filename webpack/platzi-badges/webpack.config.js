@@ -2,18 +2,26 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TersertJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
   entry: {
-    home: path.resolve(__dirname, 'src/js/index.js'),
-    contact: path.resolve(__dirname, 'src/js/contact.js'),
+    app: path.resolve(__dirname, 'src/index.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js',
-    publicPath: 'dist/',
+    filename: 'js/[name].[hash].js',
+    publicPath: '/',
     chunkFilename: 'js/[id].[chunkhash].js'
+  },
+  optimization: {
+    minimizer: [
+      new TersertJSPlugin(),
+      new OptimizeCSSAssetsPlugin()
+    ]
   },
   module: {
     rules: [
@@ -29,49 +37,17 @@ module.exports = {
           {
             loader: MiniCSSExtractPlugin.loader
           },
-          {
-            loader: 'css-loader',
-            options: {importLoaders: 1},
-          },
-          'postcss-loader'
+          'css-loader'
         ],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          {
-            loader: MiniCSSExtractPlugin.loader
-          },
-          'css-loader',
-          'less-loader'
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: MiniCSSExtractPlugin.loader
-          },
-          'css-loader',
-          'sass-loader'
-        ]
-      },
-      {
-        test: /\.styl$/,
-        use: [
-          {
-            loader: MiniCSSExtractPlugin.loader
-          },
-          'css-loader',
-          'stylus-loader'
-        ]
       },
       {
         test: /\.(jpg|png|gif|woff|eot|ttf|svg|mp4|webm)$/,
         use: {
           loader: 'url-loader',
           options: {
-           limit: 90000 
+           limit: 1000,
+           name: '[hash].[ext]',
+           outputPath: 'assets'
           }
         }
       },
@@ -79,18 +55,24 @@ module.exports = {
   },
   plugins: [
     new MiniCSSExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css'
+      filename: 'css/[name].[hash].css',
+      chunkFilename: 'css/[id].[hash].css'
     }),
     new HTMLWebpackPlugin({
-      title: 'webpac-dev-server',
-      // Se necesita indicar de donde queremos que tome como template el html
-      // para que no lo crea automaticamente
-      template: path.resolve(__dirname, 'index.html')
+      template: path.resolve(__dirname, 'public/index.html')
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.DllReferencePlugin({
       manifest: require('./modules-manifest.json')
+    }),
+    new AddAssetHtmlPlugin({
+      // Que archivo quiero importar, puede ser un patron
+      filepath: path.relative(__dirname, 'dist/js/*.dll.js'),
+      // Donde quiero liberar
+      outputPath: 'js',
+      publicPath: '/js'
+    }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/app.*']
     })
   ]
 }
