@@ -86,3 +86,17 @@ npm run build:dev -- -w
 
 * Son dependencias que ya deben estar previamente instaladas en el proyecto.
 
+## Code Spliting
+
+* Es la forma de separar modulos.
+
+## Dynamic Link Library
+
+* Con esta utilidad podemos decirle a webpack que queremos que agrupe el código.
+
+## Dynamic Imports
+
+* Cargar un recurso (chunk) de forma dinámica.
+
+
+
