@@ -16,6 +16,7 @@ module.exports = {
         'state', // for vuex state
       ],
     }],
+    'linebreak-style': false,
   },
   parserOptions: {
     parser: 'babel-eslint',
