@@ -6,7 +6,7 @@
           <router-link
             :to="{ name: 'HomePage' }"
             class="text-black hover:text-grey-darkest no-underline font-semibold text-lg">
-            Platzi Rooms
+            Byron estuvo aqui
           </router-link>
         </div>
         <div class="flex items-center w-auto">

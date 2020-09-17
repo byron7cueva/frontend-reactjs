@@ -14,6 +14,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Layout>
+          Byron estuvo aqui
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/badges" exact component={Badges} />

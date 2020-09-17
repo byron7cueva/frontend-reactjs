@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:dev": "webpack-dev-server --config ./webpack.dev.config.js",
+    "build:dev": "webpack-dev-server --config ./webpack.dev.config.js -w --watch-poll",
     "build": "webpack --config ./webpack.config.js",
     "build:dll": "webpack --config ./webpack.dll.config.js",
     "start": "http-server dist -p 3000"

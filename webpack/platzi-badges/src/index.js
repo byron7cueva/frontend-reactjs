@@ -8,5 +8,16 @@ import App from "./components/App";
 
 const container = document.getElementById("app");
 
-//ReactDOM(que_voy_renderizar, donde_voy_hacer_append)
-ReactDOM.render(<App />, container);
+//ReactDOM.render(<App />, container);
+
+// Hot reaload
+function render() {
+  ReactDOM.render(<App />, container);
+}
+render();
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    render();
+  })
+}
