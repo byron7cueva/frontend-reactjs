@@ -68,3 +68,8 @@ La finalidad de dividirlos es por:
 * Recibe datos y callbacks solo con propiedades.
 * Rara vez tienen su propio estado.
 * Están escritos como componentes funcionales a menos que necesiten mejoras de performance (PureComponent).
+
+## Portales
+
+* Es la forma de hacer que otro contenido viva en otro div no de la aplicación.
+* El caso de uso es para los modales.

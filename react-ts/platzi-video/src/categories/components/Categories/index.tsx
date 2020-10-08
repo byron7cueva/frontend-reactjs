@@ -5,7 +5,8 @@ import { Category } from '../../../types/Category';
 import { CategoryItem } from '../CategoryItem';
 
 interface CategoriesProps {
-  data: Category[]
+  data: Category[],
+  onClickMedia: () => void
 }
 
 export function Categories(props: CategoriesProps): JSX.Element {
@@ -13,7 +14,7 @@ export function Categories(props: CategoriesProps): JSX.Element {
     <div className="Categories">
       {
         props.data.map(category => (
-          <CategoryItem key={category.id} {...category} />
+          <CategoryItem key={category.id} data={category} onClickMedia={props.onClickMedia} />
         ))
       }
     </div>

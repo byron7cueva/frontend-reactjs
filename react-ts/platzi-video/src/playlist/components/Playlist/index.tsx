@@ -5,14 +5,15 @@ import { Media } from '../../../types/Media';
 import { MediaItem } from '../MediaItem';
 
 interface PlaylistProps {
-  data: Media[]
+  data: Media[],
+  onClickMedia: () => void
 }
 
 export const Playlist = (props: PlaylistProps): JSX.Element => (
   <div className="Playlist">
     {
       props.data.map(item => (
-        <MediaItem key={item.id} {...item} />
+        <MediaItem key={item.id} data={item} onClick={props.onClickMedia} />
       ))
     }
   </div>
