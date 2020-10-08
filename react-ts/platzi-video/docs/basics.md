@@ -73,3 +73,7 @@ La finalidad de dividirlos es por:
 
 * Es la forma de hacer que otro contenido viva en otro div no de la aplicación.
 * El caso de uso es para los modales.
+
+### componentDidCatch
+
+* Se puede utilizar Sentry como servicio, se puede enviar ese error para luego poder revisarlo.

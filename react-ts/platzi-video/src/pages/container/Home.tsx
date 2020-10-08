@@ -5,6 +5,7 @@ import { Categories } from '../../categories/components/Categories';
 import { Related } from '../components/Related';
 import { ModalContainer } from '../../widgets/containers/ModalContainer';
 import { Modal } from '../../widgets/components/Modal';
+import { HandleError } from '../../error/containers/HandleError';
 
 import data from '../../../data/api.json';
 
@@ -27,19 +28,21 @@ export class Home extends Component {
 
   render(): JSX.Element {
     return (
-      <HomeLayout>
-        <Related />
-        <Categories data={data.categories} onClickMedia={this.handleOpenModal} />
-        {this.state.modalVisible ? (
-          <ModalContainer>
-            <Modal
-              onClickClose={this.handleCloseModal}
-            >
-              <h1>Esto es un portal</h1>
-            </Modal>
-          </ModalContainer>
-         ): <></>}
-      </HomeLayout>
+      <HandleError>
+        <HomeLayout>
+          <Related />
+          <Categories data={data.categories} onClickMedia={this.handleOpenModal} />
+          {this.state.modalVisible ? (
+            <ModalContainer>
+              <Modal
+                onClickClose={this.handleCloseModal}
+              >
+                <h1>Esto es un portal</h1>
+              </Modal>
+            </ModalContainer>
+          ): <></>}
+        </HomeLayout>
+      </HandleError>
     );
   }
 }
