@@ -1,15 +1,12 @@
 import React from 'react';
 
-import './App.css';
-import { Media, MediaType } from './playlist/components/Media';
+import { Playlist } from './playlist/components/Playlist';
+import data from '../data/api.json';
+
+const playlist = data.categories[0].playlist;
 
 const App = () => (
-  <Media
-    title="¿Que es responsive design?"
-    author="Byron Cueva"
-    image="./src/assets/images/covers/bitcoin.jpg"
-    type={MediaType.Video}
-  />
+  <Playlist data={playlist}/>
 )
 
 export default App;

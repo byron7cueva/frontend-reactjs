@@ -34,7 +34,7 @@ module.exports = {
             options: {
               outputPath: 'assets/',
               name: "[name].[ext]",
-              esModule: true
+              esModule: false
             }
           }
         ],
