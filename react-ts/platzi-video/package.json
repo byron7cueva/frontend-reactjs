@@ -1,0 +1,32 @@
+{
+  "name": "platzi-video1",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --config webpack.appdev.config.js --mode development  -w --watch-poll",
+    "lint": "eslint --ext .ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.5",
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "css-loader": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.21.3",
+    "file-loader": "^6.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^1.3.0",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
