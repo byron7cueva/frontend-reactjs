@@ -56,7 +56,7 @@
           "title": "One more time",
           "author": "Daft Punk",
           "type": "video",
-          "cover": "./images/covers/one-more-time.jpg",
+          "cover": "covers/one-more-time.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 1
         },
@@ -64,7 +64,7 @@
           "title": "Midnight City",
           "author": "M83",
           "type": "video",
-          "cover": "./images/covers/midnight.jpg",
+          "cover": "covers/midnight.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 5
         },
@@ -72,7 +72,7 @@
           "title": "Solar Sailer",
           "author": "Daft Punk",
           "type": "video",
-          "cover": "./images/covers/solar-sailer.jpg",
+          "cover": "covers/solar-sailer.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 2
         },
@@ -80,7 +80,7 @@
           "title": "The social network",
           "author": "The social network",
           "type": "video",
-          "cover": "./images/covers/social.jpg",
+          "cover": "covers/social.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 4
         },
@@ -88,7 +88,7 @@
           "title": "No vaya a ser",
           "author": "Pablo Alboran",
           "type": "video",
-          "cover": "./images/covers/no-vaya-a-ser.jpg",
+          "cover": "covers/no-vaya-a-ser.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 3
         }
@@ -103,7 +103,7 @@
           "title": "Despacito",
           "author": "Luis Fonsi",
           "type": "video",
-          "cover": "./images/covers/despacito.jpg",
+          "cover": "covers/despacito.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 1
         },
@@ -111,7 +111,7 @@
           "title": "Echame la culpa",
           "author": "Luis fonsi",
           "type": "video",
-          "cover": "./images/covers/echame-la-culpa.jpg",
+          "cover": "covers/echame-la-culpa.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 3
         },
@@ -119,7 +119,7 @@
           "title": "Mi Gente",
           "author": "J Bavil",
           "type": "video",
-          "cover": "./images/covers/mi-gente.jpg",
+          "cover": "covers/mi-gente.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 2
         },
@@ -127,7 +127,7 @@
           "title": "Felices los 4",
           "author": "Maluma",
           "type": "video",
-          "cover": "./images/covers/felices.jpg",
+          "cover": "covers/felices.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 4
         },
@@ -135,7 +135,7 @@
           "title": "Me Rehúso",
           "author": "Danny Ocean",
           "type": "video",
-          "cover": "./images/covers/rehuso.jpg",
+          "cover": "covers/rehuso.jpg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 5
         }

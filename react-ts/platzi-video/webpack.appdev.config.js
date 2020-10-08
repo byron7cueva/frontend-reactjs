@@ -6,7 +6,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
   },
-  entry: './src/index.tsx',
+  entry: {
+    home: path.resolve(__dirname, 'src/entries/home.tsx')
+  },
   module: {
     rules: [
       {
