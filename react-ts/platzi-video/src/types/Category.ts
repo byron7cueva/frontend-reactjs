@@ -1,7 +1,7 @@
 import { Media } from './Media';
 
 export interface Category {
-  id: number;
+  id: string;
   description: string;
   title: string;
   playlist: Media[]

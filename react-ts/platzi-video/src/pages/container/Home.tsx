@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { HomeLayout } from '../components/HomeLayout';
 import { Categories } from '../../categories/components/Categories';
@@ -8,15 +9,20 @@ import { Modal } from '../../widgets/components/Modal';
 import { HandleError } from '../../error/containers/HandleError';
 import { VideoPlayer } from '../../player/containers/VideoPlayer';
 import { Media } from '../../types/Media';
+import { Category } from '../../types/Category';
+import { InitialState } from '../../store/types';
 
-import data from '../../../data/api.json';
+interface HomeProps {
+  categories: Category[]
+  search: Media[]
+}
 
 interface HomeState {
   modalVisible: boolean;
   media: Media | null;
 }
 
-export class Home extends Component<unknown, HomeState> {
+class HomeComponent extends Component<HomeProps, HomeState> {
   state = {
     modalVisible: false,
     media: null
@@ -40,7 +46,11 @@ export class Home extends Component<unknown, HomeState> {
       <HandleError>
         <HomeLayout>
           <Related />
-          <Categories data={data.categories} onClickMedia={this.handleOpenModal} />
+          <Categories
+            data={this.props.categories}
+            search={this.props.search}
+            onClickMedia={this.handleOpenModal}
+          />
           {this.state.modalVisible ? (
             <ModalContainer>
               <Modal
@@ -58,4 +68,22 @@ export class Home extends Component<unknown, HomeState> {
       </HandleError>
     );
   }
+}
+
+/**
+ * Retorna que datos quiereo del estado del store enviarle como propiedades al componente
+ * 
+ * @param state 
+ */
+function mapStateToProps(state: InitialState): HomeProps {
+  return {
+    categories: state.data.categories,
+    search: state.search
+  }
+}
+
+const Home = connect(mapStateToProps)(HomeComponent);
+
+export  {
+  Home
 }

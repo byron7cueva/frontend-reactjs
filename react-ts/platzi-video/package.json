@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config webpack.appdev.config.js --mode development  -w --watch-poll",
@@ -14,6 +16,7 @@
     "@types/node": "^14.11.5",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "css-loader": "^4.3.0",

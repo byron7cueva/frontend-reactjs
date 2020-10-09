@@ -9,5 +9,5 @@ export interface Media {
   type: "video",
   cover: string;
   src: string;
-  id: number;
+  id: string;
 }
