@@ -3,10 +3,11 @@ import React from 'react';
 import './category.css';
 import { Category } from '../../../types/Category';
 import { Playlist } from '../../../playlist/components/Playlist';
+import { Media } from '../../../types/Media';
 
 interface CategoryItemProps {
   data: Category;
-  onClickMedia: () => void
+  onClickMedia: (media: Media) => void
 }
 
 export function CategoryItem(props: CategoryItemProps): JSX.Element {

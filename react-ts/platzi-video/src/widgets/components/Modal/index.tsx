@@ -10,7 +10,7 @@ export function Modal(props: PropsWithChildren<ModalProps>): JSX.Element {
   return (
     <div className="Modal">
       {props.children}
-      <button onClick={props.onClickClose}>cerrar</button>
+      <button onClick={props.onClickClose} className="Modal-close" />
     </div>
   )
 }

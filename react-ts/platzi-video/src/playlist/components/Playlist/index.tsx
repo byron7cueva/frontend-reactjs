@@ -6,7 +6,7 @@ import { MediaItem } from '../MediaItem';
 
 interface PlaylistProps {
   data: Media[],
-  onClickMedia: () => void
+  onClickMedia: (media: Media) => void
 }
 
 export const Playlist = (props: PlaylistProps): JSX.Element => (

@@ -4,10 +4,11 @@ import './categories.css';
 import { Category } from '../../../types/Category';
 import { CategoryItem } from '../CategoryItem';
 import { SearchContainer } from '../../../widgets/containers/SearchContainer';
+import { Media } from '../../../types/Media';
 
 interface CategoriesProps {
   data: Category[],
-  onClickMedia: () => void
+  onClickMedia: (media: Media) => void
 }
 
 export function Categories(props: CategoriesProps): JSX.Element {

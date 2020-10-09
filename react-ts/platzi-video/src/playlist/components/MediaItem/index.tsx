@@ -5,19 +5,19 @@ import { Media } from '../../../types/Media';
 
 interface MediaItemProps {
   data: Media;
-  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick: (media: Media) => void;
 }
 
 export class MediaItem extends PureComponent<MediaItemProps> {
   handleClick = (): void => {
-    console.log('Haciendo click');
+    this.props.onClick(this.props.data);
   };
 
   render(): JSX.Element {
     const { data: {title, author, cover} } = this.props;
 
     return (
-      <div className="Media" onClick={this.props.onClick}>
+      <div className="Media" onClick={this.handleClick}>
         <div className="Media-cover">
           <img
             src={require(`../../../assets/images/${cover}`)}

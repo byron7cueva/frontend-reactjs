@@ -9,6 +9,8 @@ module.exports = {
   entry: {
     home: path.resolve(__dirname, 'src/entries/home.tsx')
   },
+  // La siguiente opcion permite saber donde exactamente se generan los errores
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -60,6 +62,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html")
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.EvalSourceMapDevToolPlugin({})
   ],
 };

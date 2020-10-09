@@ -6,12 +6,20 @@ import { Related } from '../components/Related';
 import { ModalContainer } from '../../widgets/containers/ModalContainer';
 import { Modal } from '../../widgets/components/Modal';
 import { HandleError } from '../../error/containers/HandleError';
+import { VideoPlayer } from '../../player/containers/VideoPlayer';
+import { Media } from '../../types/Media';
 
 import data from '../../../data/api.json';
 
-export class Home extends Component {
+interface HomeState {
+  modalVisible: boolean;
+  media: Media | null;
+}
+
+export class Home extends Component<unknown, HomeState> {
   state = {
-    modalVisible: false
+    modalVisible: false,
+    media: null
   };
 
   handleCloseModal = (): void => {
@@ -20,9 +28,10 @@ export class Home extends Component {
     });
   };
 
-  handleOpenModal = (): void => {
+  handleOpenModal = (media: Media): void => {
     this.setState({
-      modalVisible: true
+      modalVisible: true,
+      media
     });
   };
 
@@ -37,7 +46,11 @@ export class Home extends Component {
               <Modal
                 onClickClose={this.handleCloseModal}
               >
-                <h1>Esto es un portal</h1>
+                <VideoPlayer
+                  autoPlay={true}
+                  src={this.state.media.src}
+                  title={this.state.media.title}
+                />
               </Modal>
             </ModalContainer>
           ): <></>}
