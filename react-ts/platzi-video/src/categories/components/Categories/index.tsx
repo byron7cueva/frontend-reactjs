@@ -1,14 +1,14 @@
 import React from 'react';
 
 import './categories.css';
-import { Category } from '../../../types/Category';
+import { CategoryEntity } from '../../../schemas';
 import { CategoryItem } from '../CategoryItem';
 import { SearchContainer } from '../../../widgets/containers/SearchContainer';
 import { Media } from '../../../types/Media';
 import { MediaItem } from '../../../playlist/components/MediaItem';
 
 interface CategoriesProps {
-  data: Category[],
+  data: CategoryEntity[],
   search: Media[],
   onClickMedia: (media: Media) => void
 }

@@ -2,11 +2,12 @@ import { createStore, Store } from "redux";
 
 import { InitialState } from './types';
 import { dataReducer, DataDispatchAction } from './reducers/data';
-import data from '../../data/api.json';
+import { normalizedData } from '../schemas';
 
 const initialState: InitialState = {
   data: {
-    ...data
+    entities: normalizedData.entities,
+    categories: normalizedData.result.categories
   },
   search: []
 };

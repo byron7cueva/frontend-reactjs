@@ -9,11 +9,11 @@ import { Modal } from '../../widgets/components/Modal';
 import { HandleError } from '../../error/containers/HandleError';
 import { VideoPlayer } from '../../player/containers/VideoPlayer';
 import { Media } from '../../types/Media';
-import { Category } from '../../types/Category';
+import { CategoryEntity } from '../../schemas';
 import { InitialState } from '../../store/types';
 
 interface HomeProps {
-  categories: Category[]
+  categories: CategoryEntity[]
   search: Media[]
 }
 
@@ -76,8 +76,12 @@ class HomeComponent extends Component<HomeProps, HomeState> {
  * @param state 
  */
 function mapStateToProps(state: InitialState): HomeProps {
+  const categories = state.data.categories.map(categoryId => {
+    return state.data.entities.categories[categoryId];
+  });
+
   return {
-    categories: state.data.categories,
+    categories,
     search: state.search
   }
 }

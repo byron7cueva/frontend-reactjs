@@ -3,7 +3,7 @@ import './media.css';
 
 import { Media } from '../../../types/Media';
 
-interface MediaItemProps {
+export interface MediaItemProps {
   data: Media;
   onClick: (media: Media) => void;
 }
