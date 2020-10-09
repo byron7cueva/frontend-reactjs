@@ -1,10 +1,23 @@
 import { Action, Reducer } from 'redux';
 
-import { InitialState } from '../types';
+import { CategoryEntity, normalizedData } from '../../schemas';
 import { Media } from '../../types/Media';
 
 export enum DataActionType {
   SearchVideo = 'SEARCH_VIDEO'
+}
+
+export interface DataInitialState {
+  entities: {
+    categories: {
+      [key: string]: CategoryEntity
+    },
+    media: {
+      [key: string]: Media
+    }
+  },
+  categories: string[],
+  search: Media[]
 }
 
 export interface DataDispatchAction extends Action<DataActionType> {
@@ -13,7 +26,13 @@ export interface DataDispatchAction extends Action<DataActionType> {
   };
 }
 
-export const dataReducer: Reducer<InitialState, DataDispatchAction> = (state: InitialState, action): InitialState => {
+const initialState: DataInitialState = {
+  entities: normalizedData.entities,
+  categories: normalizedData.result.categories,
+  search: []
+};
+
+export const dataReducer: Reducer<DataInitialState, DataDispatchAction> = (state = initialState, action): DataInitialState => {
   switch (action.type) {
     case DataActionType.SearchVideo: {
       let search: Media[] = [];

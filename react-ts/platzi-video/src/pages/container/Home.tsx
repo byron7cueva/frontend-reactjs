@@ -10,7 +10,7 @@ import { HandleError } from '../../error/containers/HandleError';
 import { VideoPlayer } from '../../player/containers/VideoPlayer';
 import { Media } from '../../types/Media';
 import { CategoryEntity } from '../../schemas';
-import { InitialState } from '../../store/types';
+import { InitialState } from '../../store/state';
 
 interface HomeProps {
   categories: CategoryEntity[]
@@ -82,7 +82,7 @@ function mapStateToProps(state: InitialState): HomeProps {
 
   return {
     categories,
-    search: state.search
+    search: state.data.search
   }
 }
 

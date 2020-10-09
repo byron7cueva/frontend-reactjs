@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InitialState } from '../../store/types';
+import { InitialState } from '../../store/state';
 import { MediaItem, MediaItemProps } from '../components/MediaItem';
 
 interface MediaContainerProps extends Omit<MediaItemProps, 'data'> {
