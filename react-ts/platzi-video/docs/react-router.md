@@ -79,3 +79,7 @@ Tiene las siguientes propiedades:
 ## Redireccionamiento
 
 * Nos sirve para tener urls más cortas y recordables para el usuario.
+
+## Server Side Render
+
+SPA Universal: Funciona tanto el renderizado en el cliente y el servidor.

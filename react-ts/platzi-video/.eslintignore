@@ -3,3 +3,4 @@ dis/
 webpack.dll.config.js
 webpack.dev.config.js
 webpack.config.js
+webpack.server.config.js
