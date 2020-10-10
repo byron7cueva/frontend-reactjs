@@ -1,4 +1,5 @@
 import React, {PropsWithChildren} from 'react';
+import { Link } from 'react-router-dom';
 
 import './modal.css';
 
@@ -10,7 +11,13 @@ export function Modal(props: PropsWithChildren<ModalProps>): JSX.Element {
   return (
     <div className="Modal">
       {props.children}
-      <button onClick={props.onClickClose} className="Modal-close" />
+      <Link
+        to={{
+          pathname: '/videos'
+        }}
+      >
+        <button onClick={props.onClickClose} className="Modal-close" />
+      </Link>
     </div>
   )
 }

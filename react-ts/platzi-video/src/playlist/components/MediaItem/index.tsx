@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import './media.css';
+import { Link } from 'react-router-dom';
 
+import './media.css';
 import { Media } from '../../../types/Media';
 
 export interface MediaItemProps {
@@ -14,20 +15,32 @@ export class MediaItem extends PureComponent<MediaItemProps> {
   };
 
   render(): JSX.Element {
-    const { data: {title, author, cover} } = this.props;
+    const { data: {id, title, author, cover} } = this.props;
 
     return (
-      <div className="Media" onClick={this.handleClick}>
-        <div className="Media-cover">
-          <img
-            src={require(`../../../assets/images/${cover}`)}
-            alt={title}
-            className="Media-image"
-          />
+      <Link
+        to={{
+          pathname: '/videos',
+          search: `?id=${id}`
+          // state permite enviar un objeto, en donde puedo configurar parametros custom
+          /*state: {
+            modal: true,
+            id
+          }*/
+        }}
+      >
+         <div className="Media" onClick={this.handleClick}>
+          <div className="Media-cover">
+            <img
+              src={require(`../../../assets/images/${cover}`)}
+              alt={title}
+              className="Media-image"
+            />
+          </div>
+          <h3 className="Media-title">{title}</h3>
+          <p className="Media-author">{author}</p>
         </div>
-        <h3 className="Media-title">{title}</h3>
-        <p className="Media-author">{author}</p>
-      </div>
+      </Link>
     );
   }
 }
