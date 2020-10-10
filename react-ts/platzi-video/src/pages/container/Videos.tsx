@@ -51,7 +51,7 @@ type HomeProps = PropsFromRedux & {
 }
 
 
-class HomeComponent extends Component<HomeProps> {
+class VideosComponent extends Component<HomeProps> {
 
   handleCloseModal = (): void => {
     this.props.actions.closeModal();
@@ -87,8 +87,8 @@ class HomeComponent extends Component<HomeProps> {
 
 
 
-const Home = connector(HomeComponent);
+const Videos = connector(VideosComponent);
 
 export  {
-  Home
+  Videos
 }

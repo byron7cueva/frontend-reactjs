@@ -59,3 +59,15 @@ Tiene las siguientes propiedades:
 ## Fragment
 
 * Me sirve para envolver hijos y devolver un solo Element, pero no va renderizar ningun elemento en el navegador.
+
+## <Route>
+
+* Permite definir Rutas.
+* Recibe las siguientes propiedades:
+  * component: Recibe el componente que queremos renderizar.
+  * path: Indicarle la ruta.
+  * render: Alternativa a component para hacer un renderizado en modo de funcion.
+  * children: 
+  * exact: Es booleano, Valida si el match con la ruta sea exacto o no.
+  * strict: Es booleano. Este indica si termina con (/) o no tal cual como se puso en el path.
+  * sensitive: Es boolean. Para indicarle que sea key sensitive.
