@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import { Videos } from '../pages/container/Videos';
 import { Header } from '../pages/components/Header';
@@ -18,6 +18,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/videos" component={Videos} />
+            <Redirect from="/v" to="/videos" />
             <Route component={NotFound} />
           </Switch>
         </>

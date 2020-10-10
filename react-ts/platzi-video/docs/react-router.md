@@ -75,3 +75,7 @@ Tiene las siguientes propiedades:
 ## <Switch>
 
 * Permite imprimir la primera pagina que haga match con la ruta.
+
+## Redireccionamiento
+
+* Nos sirve para tener urls más cortas y recordables para el usuario.

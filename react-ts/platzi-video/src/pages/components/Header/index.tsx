@@ -20,6 +20,11 @@ export const Header = (): JSX.Element => (
           </NavLink>
         </li>
         <li>
+          <NavLink to="/v" activeClassName="is-selected">
+            Redirect
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/contacto" activeClassName="is-selected">
             Contacto
           </NavLink>
