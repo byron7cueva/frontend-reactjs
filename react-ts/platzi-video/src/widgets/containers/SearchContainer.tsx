@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { connect, DispatchProp } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 
 import { Search } from '../components/Seacrh';
 import { searchVideo } from '../../store/actions';
 
-const SearchComponent = (props: DispatchProp): JSX.Element => {
+const mapDispatchToProps = {
+  searchVideo
+}
+
+const connector = connect(null, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+const SearchComponent = (props: PropsFromRedux): JSX.Element => {
   const [value, setValue] = useState<string>('');
 
   const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.dispatch(searchVideo(value));
+    props.searchVideo(value);
   }
 
   // Obtener referencia de un elemento input html
   const setRefInput = (instance: HTMLInputElement | null) => {
-    // console.log(instance);
+    console.log(instance);
   }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +39,7 @@ const SearchComponent = (props: DispatchProp): JSX.Element => {
   );
 }
 
-const SearchContainer = connect()(SearchComponent);
+const SearchContainer = connector(SearchComponent);
 
 export {
   SearchContainer

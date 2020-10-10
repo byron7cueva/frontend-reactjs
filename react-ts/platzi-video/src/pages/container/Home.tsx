@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { Dispatch, bindActionCreators } from 'redux';
 
 import { HomeLayout } from '../components/HomeLayout';
 import { Categories } from '../../categories/components/Categories';
@@ -13,19 +13,47 @@ import { Media } from '../../types/Media';
 import { CategoryEntity } from '../../schemas';
 import { InitialState } from '../../store/state';
 import { ModalInitialState, ModalDispatchAction } from '../../store/reducers/modal';
-import { closeModal } from '../../store/actions';
+import * as actions from '../../store/actions';
 
-interface HomeProps {
+/**
+ * Retorna que datos quiereo del estado del store enviarle como propiedades al componente
+ * 
+ * @param state 
+ */
+function mapStateToProps(state: InitialState) {
+  const categories = state.data.categories.map(categoryId => {
+    return state.data.entities.categories[categoryId];
+  });
+
+  return {
+    categories,
+    search: state.data.search,
+    modal: state.modal
+  }
+}
+
+function mapDispatchToProps(dispatch: Dispatch<ModalDispatchAction>) {
+  return {
+    //  bindActionCreators(acciones, dispatch)
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type HomeProps = PropsFromRedux & {
   categories: CategoryEntity[];
   search: Media[];
   modal: ModalInitialState;
-  dispatch: Dispatch<ModalDispatchAction>;
 }
+
 
 class HomeComponent extends Component<HomeProps> {
 
   handleCloseModal = (): void => {
-    this.props.dispatch(closeModal());
+    this.props.actions.closeModal();
   };
 
   render(): JSX.Element {
@@ -55,24 +83,9 @@ class HomeComponent extends Component<HomeProps> {
   }
 }
 
-/**
- * Retorna que datos quiereo del estado del store enviarle como propiedades al componente
- * 
- * @param state 
- */
-function mapStateToProps(state: InitialState): Partial<HomeProps> {
-  const categories = state.data.categories.map(categoryId => {
-    return state.data.entities.categories[categoryId];
-  });
 
-  return {
-    categories,
-    search: state.data.search,
-    modal: state.modal
-  }
-}
 
-const Home = connect(mapStateToProps)(HomeComponent);
+const Home = connector(HomeComponent);
 
 export  {
   Home

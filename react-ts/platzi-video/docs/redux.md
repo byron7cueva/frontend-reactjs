@@ -9,7 +9,8 @@
 
 * Son funciones que engloban acciones y returnan el objeto de la accion.
 
-## Bind Action creator
+## Bind Action creators
 
 * Es una forma de enlazar las acciones como propiedades al componente.
+* Recibe un grupo de acciones y las va combinar con el dispatch para no tener que llamar a props.dispatch si no directamente el nombre de la accion.
 
