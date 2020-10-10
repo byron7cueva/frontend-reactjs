@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 import { HomeLayout } from '../components/HomeLayout';
 import { Categories } from '../../categories/components/Categories';
