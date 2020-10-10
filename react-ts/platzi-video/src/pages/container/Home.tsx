@@ -28,7 +28,8 @@ function mapStateToProps(state: InitialState) {
   return {
     categories,
     search: state.data.search,
-    modal: state.modal
+    modal: state.modal,
+    isLoading: state.isLoading
   }
 }
 
@@ -64,6 +65,7 @@ class HomeComponent extends Component<HomeProps> {
           <Categories
             data={this.props.categories}
             search={this.props.search}
+            isLoading={this.props.isLoading.active}
           />
           {this.props.modal.visibility ? (
             <ModalContainer>

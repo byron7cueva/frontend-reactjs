@@ -10,6 +10,7 @@ import { MediaContainer } from '../../../playlist/containers/MediaContainer';
 interface CategoriesProps {
   data: CategoryEntity[];
   search: Media[];
+  isLoading: boolean;
 }
 
 export function Categories(props: CategoriesProps): JSX.Element {
@@ -17,9 +18,13 @@ export function Categories(props: CategoriesProps): JSX.Element {
     <div className="Categories">
       <SearchContainer />
       {
-        props.search.map(media => (
-          <MediaContainer key={media.id} id={media.id} />
-        ))
+        props.isLoading ? (
+          <p>Buscando..</p>
+        ) : (
+          props.search.map(media => (
+            <MediaContainer key={media.id} id={media.id} />
+          ))
+        )
       }
       {
         props.data.map(category => (
