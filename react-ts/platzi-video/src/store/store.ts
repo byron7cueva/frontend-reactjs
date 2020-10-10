@@ -1,6 +1,7 @@
 import { createStore, Store, applyMiddleware } from "redux";
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 import { rootReducer } from './reducers';
 
@@ -18,6 +19,6 @@ const logger = ({getState, dispatch}) => next => action => {
 export const store: Store = createStore(
   rootReducer,
   {},
-  composeWithDevTools(applyMiddleware(logger))
+  composeWithDevTools(applyMiddleware(logger, thunk))
   //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

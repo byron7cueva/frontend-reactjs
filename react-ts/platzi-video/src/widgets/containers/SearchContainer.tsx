@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import { Search } from '../components/Seacrh';
-import { searchVideo } from '../../store/actions';
+import { searchAsyncVideo } from '../../store/actions';
 
 const mapDispatchToProps = {
-  searchVideo
+  searchAsyncVideo
 }
 
 const connector = connect(null, mapDispatchToProps);
@@ -17,7 +17,7 @@ const SearchComponent = (props: PropsFromRedux): JSX.Element => {
 
   const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.searchVideo(value);
+    props.searchAsyncVideo(value);
   }
 
   // Obtener referencia de un elemento input html

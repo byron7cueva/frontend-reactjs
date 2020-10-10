@@ -4,7 +4,8 @@ import { CategoryEntity, normalizedData } from '../../schemas';
 import { Media } from '../../types/Media';
 
 export enum DataActionType {
-  SearchVideo = 'SEARCH_VIDEO'
+  SearchVideo = 'SEARCH_VIDEO',
+  SearchAsyncVideo = 'SEARCH_ASYNC_VIDEO'
 }
 
 export interface DataInitialState {

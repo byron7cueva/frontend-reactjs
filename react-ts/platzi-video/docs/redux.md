@@ -19,3 +19,10 @@
 * Es una forma de poder interceptar todo lo que esta ocurriendo con redux, para hacer algo extra.
 * Son funciones que recibe un dispatch y el getState del store como argumentos y regresa una función. Esta función va recibir el método para despachar el siguiente middleware, y se espera que devuelva una función que recibe el action y llame next(action)
 
+## Flujos Asíncronos
+
+Se puede realizar de dos formas:
+
+1. Utilizando el middleware a traves de redux-thunk, el cual permite manejar los flujos asíncronos desde adentro de las acciones.
+2. Otra forma es utilizar los flujos asíncronos desde fuera de las funciones.
+
