@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { InitialState } from '../../store/state';
-import { ModalDispatchAction, ModalActionType } from '../../store/reducers/modal';
+import { ModalDispatchAction } from '../../store/reducers/modal';
 import { MediaItem, MediaItemProps } from '../components/MediaItem';
+import { openModal } from '../../store/actions';
 
 interface MediaContainerProps {
   id: string;
@@ -17,12 +18,7 @@ interface MediaComponentProps extends Omit<MediaItemProps, 'onClick'> {
 const MediaComponent = (props: MediaComponentProps) => {
 
   const handleClickMedia = (mediaId: string) => {
-    props.dispatch({
-      type: ModalActionType.OpenModal,
-      payload: {
-        mediaId
-      }
-    })
+    props.dispatch(openModal(mediaId));
   }
 
   return (

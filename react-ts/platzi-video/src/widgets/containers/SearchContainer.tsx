@@ -2,20 +2,14 @@ import React, { useState } from 'react';
 import { connect, DispatchProp } from 'react-redux';
 
 import { Search } from '../components/Seacrh';
-import { DataActionType } from '../../store/reducers/data';
+import { searchVideo } from '../../store/actions';
 
 const SearchComponent = (props: DispatchProp): JSX.Element => {
   const [value, setValue] = useState<string>('');
 
   const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Submit', value);
-    props.dispatch({
-      type: DataActionType.SearchVideo,
-      payload: {
-        query: value
-      }
-    })
+    props.dispatch(searchVideo(value));
   }
 
   // Obtener referencia de un elemento input html
@@ -28,7 +22,12 @@ const SearchComponent = (props: DispatchProp): JSX.Element => {
   }
 
   return (
-    <Search onSubmit={handleSubmit} setRef={setRefInput} onChange={handleInputChange} value={value} />
+    <Search
+      onSubmit={handleSubmit}
+      setRef={setRefInput}
+      onChange={handleInputChange}
+      value={value}
+    />
   );
 }
 

@@ -12,7 +12,8 @@ import { VideoPlayer } from '../../player/containers/VideoPlayer';
 import { Media } from '../../types/Media';
 import { CategoryEntity } from '../../schemas';
 import { InitialState } from '../../store/state';
-import { ModalInitialState, ModalActionType, ModalDispatchAction } from '../../store/reducers/modal';
+import { ModalInitialState, ModalDispatchAction } from '../../store/reducers/modal';
+import { closeModal } from '../../store/actions';
 
 interface HomeProps {
   categories: CategoryEntity[];
@@ -24,9 +25,7 @@ interface HomeProps {
 class HomeComponent extends Component<HomeProps> {
 
   handleCloseModal = (): void => {
-    this.props.dispatch({
-      type: ModalActionType.CloseModal
-    });
+    this.props.dispatch(closeModal());
   };
 
   render(): JSX.Element {
