@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { HomeLayout } from '../components/HomeLayout';
 import { Categories } from '../../categories/components/Categories';
@@ -48,7 +49,7 @@ type HomeProps = PropsFromRedux & {
   categories: CategoryEntity[];
   search: Media[];
   modal: ModalInitialState;
-}
+} & RouteComponentProps<never, never, {id: string}>;
 
 
 class VideosComponent extends Component<HomeProps> {
@@ -56,6 +57,14 @@ class VideosComponent extends Component<HomeProps> {
   handleCloseModal = (): void => {
     this.props.actions.closeModal();
   };
+
+  componentDidMount() {
+    const { state, search } = this.props.location;
+    if (search) {
+      // const id = search.split('=')[1];
+      this.props.actions.openModal(state.id.toString());
+    }
+  }
 
   render(): JSX.Element {
     return (
@@ -87,7 +96,7 @@ class VideosComponent extends Component<HomeProps> {
 
 
 
-const Videos = connector(VideosComponent);
+const Videos = withRouter(connector(VideosComponent));
 
 export  {
   Videos
