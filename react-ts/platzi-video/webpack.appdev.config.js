@@ -7,7 +7,7 @@ module.exports = {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
   },
   entry: {
-    home: path.resolve(__dirname, 'src/entries/home.tsx')
+    app: path.resolve(__dirname, 'src/entries/app.tsx')
   },
   // La siguiente opcion permite saber donde exactamente se generan los errores
   devtool: 'eval-source-map',
