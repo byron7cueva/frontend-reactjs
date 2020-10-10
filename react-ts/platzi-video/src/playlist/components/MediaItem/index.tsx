@@ -24,9 +24,9 @@ export class MediaItem extends PureComponent<MediaItemProps> {
             alt={title}
             className="Media-image"
           />
-          <h3 className="Media-title">{title}</h3>
-          <p className="Media-author">{author}</p>
         </div>
+        <h3 className="Media-title">{title}</h3>
+        <p className="Media-author">{author}</p>
       </div>
     );
   }
