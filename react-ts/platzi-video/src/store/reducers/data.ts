@@ -37,8 +37,8 @@ export const dataReducer: Reducer<DataInitialState, DataDispatchAction> = (state
     case DataActionType.SearchVideo: {
       let search: Media[] = [];
       if (action.payload.query) {
-        const list = state?.data.categories[2].playlist;
-        search = list?.filter(media => media.author.includes(action.payload.query))
+        const list = Object.values(state.entities.media);
+        search = list.filter(media => media.author.toLowerCase().includes(action.payload.query.toLowerCase()))
       }
       return { ...state, search };
     }

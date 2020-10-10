@@ -5,12 +5,11 @@ import { CategoryEntity } from '../../../schemas';
 import { CategoryItem } from '../CategoryItem';
 import { SearchContainer } from '../../../widgets/containers/SearchContainer';
 import { Media } from '../../../types/Media';
-import { MediaItem } from '../../../playlist/components/MediaItem';
+import { MediaContainer } from '../../../playlist/containers/MediaContainer';
 
 interface CategoriesProps {
-  data: CategoryEntity[],
-  search: Media[],
-  onClickMedia: (media: Media) => void
+  data: CategoryEntity[];
+  search: Media[];
 }
 
 export function Categories(props: CategoriesProps): JSX.Element {
@@ -19,12 +18,12 @@ export function Categories(props: CategoriesProps): JSX.Element {
       <SearchContainer />
       {
         props.search.map(media => (
-          <MediaItem key={media.id} data={media} onClick={props.onClickMedia} />
+          <MediaContainer key={media.id} id={media.id} />
         ))
       }
       {
         props.data.map(category => (
-          <CategoryItem key={category.id} data={category} onClickMedia={props.onClickMedia} />
+          <CategoryItem key={category.id} data={category} />
         ))
       }
     </div>

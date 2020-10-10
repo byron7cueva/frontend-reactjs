@@ -5,12 +5,12 @@ import { Media } from '../../../types/Media';
 
 export interface MediaItemProps {
   data: Media;
-  onClick: (media: Media) => void;
+  onClick: (mediaId: string) => void;
 }
 
 export class MediaItem extends PureComponent<MediaItemProps> {
   handleClick = (): void => {
-    this.props.onClick(this.props.data);
+    this.props.onClick(this.props.data.id);
   };
 
   render(): JSX.Element {

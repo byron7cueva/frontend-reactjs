@@ -11,7 +11,7 @@ export enum ModalActionType {
 }
 
 export interface ModalDispatchAction extends Action<ModalActionType> {
-  payload: Partial<ModalInitialState>;
+  payload?: Partial<ModalInitialState>;
 }
 
 const initialState: ModalInitialState = {
@@ -21,8 +21,8 @@ const initialState: ModalInitialState = {
 
 export const modalReducer: Reducer<ModalInitialState, ModalDispatchAction> = (state = initialState, action): ModalInitialState => {
   switch (action.type) {
-    case ModalActionType.OpenModal: return state;
-    case ModalActionType.CloseModal: return state;
+    case ModalActionType.OpenModal: return {...state, visibility: true, mediaId: action.payload.mediaId};
+    case ModalActionType.CloseModal: return {...state, visibility: false};
     default: return state;
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { VideoPlayerLayout } from '../components/VideoPlayerLayout';
 import { Video } from '../components/Video';
@@ -10,11 +11,16 @@ import { ProgressBar } from '../components/ProgressBar';
 import { Spinner } from '../components/Spinner';
 import { Volume } from '../components/Volume';
 import { FullScreen } from '../components/FullScreen';
+import { InitialState } from '../../store/state';
+import { Media } from '../../types/Media';
 
 interface VideoPlayerProps {
   autoPlay: boolean;
-  title: string;
-  src: string;
+  mediaId: string;
+}
+
+interface VideoPlayerContainerProps extends Omit<VideoPlayerProps, 'mediaId'>{
+  media: Media
 }
 
 interface VideoPlayerState {
@@ -24,7 +30,7 @@ interface VideoPlayerState {
   loading: boolean;
 }
 
-export class VideoPlayer extends Component<VideoPlayerProps, VideoPlayerState> {
+class VideoPlayerContainer extends Component<VideoPlayerContainerProps, VideoPlayerState> {
 
   state: VideoPlayerState = {
     pause: true,
@@ -90,7 +96,7 @@ export class VideoPlayer extends Component<VideoPlayerProps, VideoPlayerState> {
       <VideoPlayerLayout
         setRef={this.setRef}
       >
-        <Title title={this.props.title} />
+        <Title title={this.props.media.title} />
         <Controls>
           <PlayPause onClick={this.tooglePlayPause} pause={this.state.pause} />
           <Timer duration={this.state.duration} currentTime={this.state.currentTime} />
@@ -106,7 +112,7 @@ export class VideoPlayer extends Component<VideoPlayerProps, VideoPlayerState> {
         <Video
           autoPlay={this.props.autoPlay}
           pause={this.state.pause}
-          src={this.props.src}
+          src={this.props.media.src}
           onLoadedMetadata={this.handleLoadedMetadata}
           onTimeUpdate={this.handleTimeUpdate}
           onSeeking={this.handleSeeking}
@@ -115,4 +121,16 @@ export class VideoPlayer extends Component<VideoPlayerProps, VideoPlayerState> {
       </VideoPlayerLayout>
     );
   }
+}
+
+function mapStateToProps(state: InitialState, props: VideoPlayerProps) {
+  return {
+    media: state.data.entities.media[props.mediaId]
+  }
+}
+
+const VideoPlayer = connect(mapStateToProps)(VideoPlayerContainer);
+
+export {
+  VideoPlayer
 }

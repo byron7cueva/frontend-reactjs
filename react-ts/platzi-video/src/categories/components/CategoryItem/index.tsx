@@ -3,11 +3,9 @@ import React from 'react';
 import './category.css';
 import { CategoryEntity } from '../../../schemas';
 import { Playlist } from '../../../playlist/components/Playlist';
-import { Media } from '../../../types/Media';
 
 interface CategoryItemProps {
   data: CategoryEntity;
-  onClickMedia: (media: Media) => void
 }
 
 export function CategoryItem(props: CategoryItemProps): JSX.Element {
@@ -16,7 +14,7 @@ export function CategoryItem(props: CategoryItemProps): JSX.Element {
     <div className="Category">
       <p className="Category-description">{description}</p>
       <h2 className="Category-title">{title}</h2>
-      <Playlist data={playlist} onClickMedia={props.onClickMedia} />     
+      <Playlist data={playlist} />
     </div>
   );
 }

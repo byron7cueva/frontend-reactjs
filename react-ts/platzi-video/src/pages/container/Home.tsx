@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import { HomeLayout } from '../components/HomeLayout';
 import { Categories } from '../../categories/components/Categories';
@@ -11,33 +12,20 @@ import { VideoPlayer } from '../../player/containers/VideoPlayer';
 import { Media } from '../../types/Media';
 import { CategoryEntity } from '../../schemas';
 import { InitialState } from '../../store/state';
+import { ModalInitialState, ModalActionType, ModalDispatchAction } from '../../store/reducers/modal';
 
 interface HomeProps {
-  categories: CategoryEntity[]
-  search: Media[]
+  categories: CategoryEntity[];
+  search: Media[];
+  modal: ModalInitialState;
+  dispatch: Dispatch<ModalDispatchAction>;
 }
 
-interface HomeState {
-  modalVisible: boolean;
-  media: Media | null;
-}
-
-class HomeComponent extends Component<HomeProps, HomeState> {
-  state = {
-    modalVisible: false,
-    media: null
-  };
+class HomeComponent extends Component<HomeProps> {
 
   handleCloseModal = (): void => {
-    this.setState({
-      modalVisible: false
-    });
-  };
-
-  handleOpenModal = (media: Media): void => {
-    this.setState({
-      modalVisible: true,
-      media
+    this.props.dispatch({
+      type: ModalActionType.CloseModal
     });
   };
 
@@ -49,17 +37,15 @@ class HomeComponent extends Component<HomeProps, HomeState> {
           <Categories
             data={this.props.categories}
             search={this.props.search}
-            onClickMedia={this.handleOpenModal}
           />
-          {this.state.modalVisible ? (
+          {this.props.modal.visibility ? (
             <ModalContainer>
               <Modal
                 onClickClose={this.handleCloseModal}
               >
                 <VideoPlayer
                   autoPlay={true}
-                  src={this.state.media.src}
-                  title={this.state.media.title}
+                  mediaId={this.props.modal.mediaId}
                 />
               </Modal>
             </ModalContainer>
@@ -75,14 +61,15 @@ class HomeComponent extends Component<HomeProps, HomeState> {
  * 
  * @param state 
  */
-function mapStateToProps(state: InitialState): HomeProps {
+function mapStateToProps(state: InitialState): Partial<HomeProps> {
   const categories = state.data.categories.map(categoryId => {
     return state.data.entities.categories[categoryId];
   });
 
   return {
     categories,
-    search: state.data.search
+    search: state.data.search,
+    modal: state.modal
   }
 }
 

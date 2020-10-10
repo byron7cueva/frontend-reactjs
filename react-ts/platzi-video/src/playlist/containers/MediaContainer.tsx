@@ -1,16 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import { InitialState } from '../../store/state';
+import { ModalDispatchAction, ModalActionType } from '../../store/reducers/modal';
 import { MediaItem, MediaItemProps } from '../components/MediaItem';
 
-interface MediaContainerProps extends Omit<MediaItemProps, 'data'> {
+interface MediaContainerProps {
   id: string;
 }
 
-const MediaComponent = (props: MediaItemProps) => (
-  <MediaItem data={props.data} onClick={props.onClick} />
-);
+interface MediaComponentProps extends Omit<MediaItemProps, 'onClick'> {
+  dispatch: Dispatch<ModalDispatchAction>;
+}
+
+const MediaComponent = (props: MediaComponentProps) => {
+
+  const handleClickMedia = (mediaId: string) => {
+    props.dispatch({
+      type: ModalActionType.OpenModal,
+      payload: {
+        mediaId
+      }
+    })
+  }
+
+  return (
+    <MediaItem data={props.data} onClick={handleClickMedia} />
+  );
+}
 
 function mapStateToProps(state: InitialState, props: MediaContainerProps) {
   return {
