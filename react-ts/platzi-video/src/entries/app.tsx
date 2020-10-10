@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { Videos } from '../pages/container/Videos';
 import { Header } from '../pages/components/Header';
 import { Home } from '../pages/components/Home';
+import { NotFound } from '../pages/components/NotFound';
 import { store } from '../store/store';
 
 ReactDOM.render(
@@ -14,8 +15,11 @@ ReactDOM.render(
       <Provider store={store}>
         <>
           <Header />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/videos" component={Videos} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/videos" component={Videos} />
+            <Route component={NotFound} />
+          </Switch>
         </>
       </Provider>
     </BrowserRouter>

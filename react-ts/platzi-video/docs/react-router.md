@@ -71,3 +71,7 @@ Tiene las siguientes propiedades:
   * exact: Es booleano, Valida si el match con la ruta sea exacto o no.
   * strict: Es booleano. Este indica si termina con (/) o no tal cual como se puso en el path.
   * sensitive: Es boolean. Para indicarle que sea key sensitive.
+
+## <Switch>
+
+* Permite imprimir la primera pagina que haga match con la ruta.
