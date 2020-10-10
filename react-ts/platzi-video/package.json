@@ -14,7 +14,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --config webpack.appdev.config.js --mode development  -w --watch-poll",
+    "dev": "NODE_ENV=development webpack-dev-server --config webpack.dev.config.js --mode development  -w --watch-poll",
     "lint": "eslint --ext .ts",
     "build:dll": "webpack --config webpack.dll.config.js --mode production",
     "build:app": "webpack --config webpack.config.js --mode production",
