@@ -22,7 +22,7 @@ module.exports = (env) => {
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
     },
     entry: {
-      app: path.resolve(__dirname, 'src/entries/app.tsx')
+      app: path.resolve(__dirname, 'src/pages/container/App.tsx')
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
