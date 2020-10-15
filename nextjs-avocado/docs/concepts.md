@@ -116,3 +116,49 @@ Next.js nos ofrece 3 formas de poder integrar CSS (Built-in CSS Nex.js).
 
 - Dentro del elemento del componente se define un tag `<style jsx>` y dentro de este a traves de de template literal se define los estilos que se desea aplicar al componente.
 - De igual manera une un hash al nombre de la clase que se define en css, para evitar coliciones de nombre.
+
+## Deployando en Vercel (Antes Now.sh)
+
+- Importar el proyecto desde GitHub, GitLab o Bitbucket
+
+## Pre-rendering
+
+Client Site:
+
+- El useEffect siempre se va ejecutar en el navegador
+
+Server Site Render (SSR):
+
+- La pagina debe exportar getServerSideProps: Es una funcion que debe ser asincrona y esta se va ejecutar desde el servidor. Esta tiene que retornar un objeto cuyo resultado debe retornar las props que va recibir la página.
+- Los datos se traen bajo demanda desde el servidor. Cada vez que un usuario realiza un solicitud de la página, el servidor debe hacer un request al API.
+- El endpoint no puede ser relativo.
+
+Static Site Generator (SSG):
+
+- La pagina deve devolver una funcion llamada getStaticProps, funciona de la misma manera en Server Site Render
+- Todos los metodos que se estan indicando se pueden utilizar en las páginas no se puede utilizar en los componentes
+- La diferencia es en el momento en el cual es llamado al API. Ese request al API se realiza solo una sola vez y esa única vez es cuando se realiza el Build, entonces Next.js va generar archivos estáticos.
+- Páginas Dinámicas: Se requiere de forma obligatoria implementar la función asíncrona getStaticPaths, para indicarle a Next.js las páginas que necesitamos. Esta se debe exportar desde la página en la cual se usa y debe retornar un objeto { path: [{params: {parametro: ... }}] }, indicando el query para los cuales se va generar las páginas, también se debe indicar un segundo elemento del objeto llamado fallback que es un incremental static generation, fallback: false -> esto indica que se va generar un 404 para cualquier otra página que no tiene los parámetros correctos.
+
+## Exportando la aplicación estática
+
+Agregar la tarea export al packaje.json:
+
+```json
+"export": "next export"
+```
+
+Se debe ejecutar primero el build y luego el export
+Esto genera una carpeta out, en la cual se encuentran las páginas estáticas. Este es el que vamos a publicar.
+
+## Performance
+
+- reportWebVitals: Es una funcion que unicamente se la debe exportar desde el archivo \_app. Va recibir un parametro un parametro llamado metric. Esta es la api la cuaal provee Next.js para obtener metricas
+
+Limpiar el repositorio git:
+gut clean -d --force
+git chekout .
+
+## A Futuro
+
+Incremental Static Site Generator: Intenta unir la brecha que existe entre el server side rendering y el static site generator. En donde se pueda combinar ambos y obtener lo mejor.
