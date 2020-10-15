@@ -10,7 +10,7 @@ import CarouselItem from '../components/CorouselItem';
 import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState';
 
-const API = 'http://localhost:3000/initalState';
+const API = 'http://localhost:3000/initialState.json';
 
 const App = () => {
   const initialState = useInitialState(API);
