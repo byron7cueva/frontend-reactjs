@@ -1,0 +1,631 @@
+{
+  "info": {
+    "_postman_id": "621e48e0-ee91-41fb-8b78-b90f3fc662e5",
+    "name": "Courses API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "List Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{api_url}}/courses/",
+              "host": ["{{api_url}}"],
+              "path": ["courses", ""]
+            },
+            "description": "# Only for list courses"
+          },
+          "response": []
+        },
+        {
+          "name": "Get course",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{api_url}}/courses/2/",
+              "host": ["{{api_url}}"],
+              "path": ["courses", "2", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Query course",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "68cc53a9-226b-4d7d-97f5-9d1ad6883839",
+                "exec": [
+                  "// Guardar en el enviroment el día de hoy",
+                  "pm.environment.set('today', new Date().toISOString())"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{api_url}}/courses/?ordering=-ranking&begin_date={{today}}",
+              "host": ["{{api_url}}"],
+              "path": ["courses", ""],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "1",
+                  "description": "Cantidad de results por página",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de página",
+                  "disabled": true
+                },
+                {
+                  "key": "ordering",
+                  "value": "-ranking",
+                  "description": "Ordenar"
+                },
+                {
+                  "key": "begin_date",
+                  "value": "{{today}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Course",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Curso de Postman\",\n    \"description\": \"The description\",\n    \"teachers\": [\n        {\n            \"name\": \"David Aroesti\",\n            \"description\": \"Big Data Analyst\",\n            \"current_job\": \"Education Team Leader @ Platzi\"\n        },\n        {\n            \"name\": \"Eduardo Alvarez\",\n            \"description\": \"Productor @ Platzi\",\n            \"current_job\": \"Course Director\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_url}}/courses/",
+              "host": ["{{api_url}}"],
+              "path": ["courses", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Badge",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "badge",
+                  "type": "file",
+                  "src": "/home/byron/Pictures/badge.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{api_url}}/courses/1/upload_badge/",
+              "host": ["{{api_url}}"],
+              "path": ["courses", "1", "upload_badge", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Badge",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{media_url}}/badges/badge.png",
+              "host": ["{{media_url}}"],
+              "path": ["badges", "badge.png"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "# This is a Courses Collection",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "37b5439b-27f9-40e1-affe-e68fddf28b1e",
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "775c8d7c-c392-46bb-9542-7d86aae8d92e",
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Materials",
+      "item": [
+        {
+          "name": "Get Material",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{api_url}}/materials/1/",
+              "host": ["{{api_url}}"],
+              "path": ["materials", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{api_url}}/materials/4/comments/",
+              "host": ["{{api_url}}"],
+              "path": ["materials", "4", "comments", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Material",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"course\": 4,\n    \"title\": \"Concluciones\",\n    \"description\": \"Como les parecio el curso\",\n    \"videos\": [\n        {\n            \"provider\": \"A\",\n            \"url\": \"https://platzi.com/clases/\"\n        }\n    ],\n    \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_url}}/materials/",
+              "host": ["{{api_url}}"],
+              "path": ["materials", ""]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Comment Creation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "acec37d6-9379-4ead-93e8-711caaa4a57c",
+                "exec": [
+                  "pm.test(\"Successful POST request\", function() {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"content\": \"This is a comment\",\n    \"material\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_url}}/comments/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", ""]
+            },
+            "description": "# This is the description for Comments Creation\n\nRequest\n- `content`: `String` especify the content of a comment\n- `material`: `Int` especify the material"
+          },
+          "response": [
+            {
+              "name": "Comment Creation Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "type": "text",
+                    "value": "{{token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"content\": \"This is a comment\",\n    \"material\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_url}}/comments/",
+                  "host": ["{{api_url}}"],
+                  "path": ["comments", ""]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 16 Oct 2020 17:06:36 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.6.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "147"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"content\": \"This is a comment\",\n    \"likes\": 0,\n    \"created_at\": \"2020-10-16T17:06:36.926453Z\",\n    \"updated_at\": \"2020-10-16T17:06:36.926507Z\",\n    \"material\": 1\n}"
+            },
+            {
+              "name": "Comment Creation Failed 400",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "type": "text",
+                    "value": "{{token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_url}}/comments/",
+                  "host": ["{{api_url}}"],
+                  "path": ["comments", ""]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 16 Oct 2020 17:08:44 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.6.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"content\": [\n        \"This field is required.\"\n    ],\n    \"material\": [\n        \"This field is required.\"\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Like Comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/comments/2/like/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", "like", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dislike Comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/comments/2/dislike/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", "dislike", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Comment x-www-from-urlencoded",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "content",
+                  "value": "Another comment",
+                  "type": "text"
+                },
+                {
+                  "key": "material",
+                  "value": "4",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{api_url}}/comments/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Comment",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/comments/2/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Options Comment",
+          "request": {
+            "method": "OPTIONS",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/comments/2/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Content Comment",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"content\": \"A edited comment\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_url}}/comments/2/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update All Object Coment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token e5975e7ab6843c85f62b5d923a2ce547e99a5aa3",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"content\": \"A edited comment 2\",\n    \"likes\": 100,\n    \"material\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_url}}/comments/2/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "2", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Comment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/comments/1/",
+              "host": ["{{api_url}}"],
+              "path": ["comments", "1", ""]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Authentication",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "09bb9338-c93b-4e5c-9126-7b51cbe313c7",
+            "exec": [
+              "pm.test(\"Status code is 200\", function() {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response should be JSON\", function () {",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "pm.test(\"Response should contains toke\", function () {",
+              "    pm.response.to.have.jsonBody('token');",
+              "",
+              "    pm.environment.unset('token');",
+              "",
+              "    const json = JSON.parse(responseBody);",
+              "    pm.environment.set('token', `Token ${json.token}`);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"superadmin\",\n    \"password\": \"ThisIs@SecurePassw0rd\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_url}}/api-token-auth/",
+          "host": ["{{api_url}}"],
+          "path": ["api-token-auth", ""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
