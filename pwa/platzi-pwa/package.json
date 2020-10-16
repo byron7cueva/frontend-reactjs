@@ -1,0 +1,33 @@
+{
+  "name": "platzi-recetas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "serve": "^11.3.2"
+  },
+  "scripts": {
+    "dev": "react-scripts start -w",
+    "start": "serve ./build -s -p ${PORT:-4000}",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
