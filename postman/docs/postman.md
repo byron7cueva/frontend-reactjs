@@ -10,3 +10,9 @@
 ## Colecion
 
 - Una carpeta donde declaramos los request que le pertenecen a esa carpeta.
+
+## Prerequest
+
+### Orden de ejecución de los scripts
+
+![image-20201016121746720](./assets/orden_ejecicion.png)
