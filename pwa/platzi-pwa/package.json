@@ -5,17 +5,22 @@
   "dependencies": {
     "isomorphic-fetch": "^3.0.0",
     "react": "^16.14.0",
+    "react-app-rewire-workbox": "^2.0.1",
+    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.14.0",
+    "react-ga": "^3.2.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "scripts": {
-    "dev": "react-scripts start -w",
+    "dev": "react-app-rewired start",
     "start": "serve ./build -s -p ${PORT:-4000}",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "build-sw": "node ./config-overrides.js",
+    "build": "react-scripts build && npm run build-sw",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -29,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "workbox-build": "^5.1.4"
   }
 }

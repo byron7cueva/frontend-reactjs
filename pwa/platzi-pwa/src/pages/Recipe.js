@@ -21,6 +21,21 @@ export default class Recipe extends React.Component {
     this.setState({ recipe, isLoading: false })
   }
 
+  compartir = (event) => {
+    event.preventDefault()
+    if ( navigator.share ) {
+      const { recipe } = this.state
+      navigator.share({
+        title: `${recipe.name}`,
+        text: 'Receta de Platzi',
+        // La url debe ser absoluta
+        url: document.location.href
+      })
+      .then(() => alert('Contenido compartido'))
+      .catch(error => alert('Hubo un error'))
+    }
+  }
+
   render() {
     const { recipe, isLoading } = this.state
 
@@ -44,6 +59,7 @@ export default class Recipe extends React.Component {
           <p>{ recipe.origin }</p>
         </div>
         <div>
+            <a href="#" onClick={this.compartir}>Compartir</a>
         </div>
       </div>
 
