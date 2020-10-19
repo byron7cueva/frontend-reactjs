@@ -1,0 +1,13 @@
+# Informacion del sitio
+# siteMetadata viene desde el archivo de configuracion de gatsby
+query {
+  allSite{
+    edges{
+      node{
+        siteMetadata{
+          description
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# Cantidad de archivos en gatsby-source-filesystem
+query Total{
+  allFile{
+    totalCount
+  }
+}
+
+# Obtener la informacion
+# Edges: Son la conexion directa con el plugin (conexion a la fuente de datos) y con el servicio
+# que trajo para nosotros
+# node: Hace referencia a los elementos o elemento en particular
+# que la fuente de datos que trae. Son lo elementos ya en particular
+
+query ListImages{
+  allFile{
+    edges{
+      node{
+        id
+        name
+        relativePath
+        size
+        publicURL
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Obtener la informacion de todas las imagenes
+query Images{
+  allFile{
+    edges{
+      node{
+        childImageSharp{
+          fluid(maxWidth: 500){
+            src
+            srcWebp
+            sizes
+            originalImg
+            base64
+          }
+        }
+      }
+    }
+  }
+}
+
+# Obteniendo la informacion de una imagen
+query Image{
+  logo: file(relativePath: {eq: "Logo.png"}){
+    childImageSharp{
+      fluid(maxWidth: 1000){
+        src
+        srcWebp
+      }
+    }
+  }
+}
