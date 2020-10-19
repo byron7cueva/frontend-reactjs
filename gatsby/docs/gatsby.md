@@ -98,12 +98,29 @@ gatsby new nombre
 ## Plugins
 
 * Son piezas de código como paquetes que podemos agregar a nuestro proyecto que nos pueden ayudar a resolver algunas cosas.
+* Permiten acelerar el proceso de desarrollo y lo hace mucho mas simple.
 * Tipo de plugins
   * Como un componente: Esta configurado para resolver una problemática.
   * Agregan una funcionalidad en concreto o agregando un comportamiento. Se ayuda de un plugin de funcionalidad llamado de  transformación, el cual toma la imagen para darnos ciertas versiones de la imagen permitiendo el Lazy loading.
   * Plugins de fuentes de datos. Estos se ayudan de Graphql y node.js para consumir la información de un Endpoint (firebase, API rest, GrapServer, Wordpress o sistema de archivos) .
 
+### gatsby-plugin-typography
+
+* Gestiona las fuentes del proyecto independiente de la vista, sin configurar en css.
+
 ### Helmet
 
 * Su funcionalidad es llevar la configuración a los meta tags del sitio en producción.
+
+## Graphql
+
+* Es un lenguaje tipado que nos ayuda a comunicar servicios.
+* En gatsby recolecta toda la información y la coloca en un servidor de graphql interno. Poniendo disponible un schema con la información que recolecto.
+* **GraphiQL:** Es un cliente que nos ayuda a probar los queries y mutaciones de Graphql. La gran mayoría los datos vienen desde el archivo gatsby-config.js
+
+## Style Components
+
+* Tener css en javascript
+
+
 
