@@ -67,4 +67,43 @@ gatsby new nombre
   gatsby new nombre quienLoEscribio/nombreStarter
   ```
 
-  
+
+## Archivos de configuración
+
+### gatsby-config.js
+
+* Tiene configuración importante de gatsby entre ellos metadatos importantes para el sitio como: el titulo, descripción y autor del proyecto.
+* También contiene una serie de configuraciones de plugins.
+  * gatsby-plugin-react-helmet: Nos ayuda con el SEO.
+
+### gatsby-browser.js
+
+* Tiene una serie de métodos, que me ayuda a ejecutar algo cuando el proyecto esta en el cliente.
+* Nos ayuda para generar vistas.
+* Añadir un store en el proyecto, como context API o redux.
+* También nos permite cargar una librería como puede ser google maps.
+* Todo lo que se ponga acá sucede después del render de la aplicación.
+
+### gatsby-node.js
+
+* Su nombre viene de nodos. Piezas de construcción del sitio.
+* Aquí sucede todo lo que refiere a Graphql y a las vistas o páginas del sitio.
+* En este punto es donde puedo tomar piezas de Graphql y generar vistas en función de la información que tenga o incluso consumir un API y dársela a Graphql generando así mis propios plugin de fuente de datos.
+
+### gatsby-ssr.js
+
+* Es muy similar al gatsby-browser. A diferencia que aquí configura la lógica que sucede en tiempo de construcción cuando se esta preparando el sitio.
+* También se puede agregar el store de redux o context API.
+
+## Plugins
+
+* Son piezas de código como paquetes que podemos agregar a nuestro proyecto que nos pueden ayudar a resolver algunas cosas.
+* Tipo de plugins
+  * Como un componente: Esta configurado para resolver una problemática.
+  * Agregan una funcionalidad en concreto o agregando un comportamiento. Se ayuda de un plugin de funcionalidad llamado de  transformación, el cual toma la imagen para darnos ciertas versiones de la imagen permitiendo el Lazy loading.
+  * Plugins de fuentes de datos. Estos se ayudan de Graphql y node.js para consumir la información de un Endpoint (firebase, API rest, GrapServer, Wordpress o sistema de archivos) .
+
+### Helmet
+
+* Su funcionalidad es llevar la configuración a los meta tags del sitio en producción.
+

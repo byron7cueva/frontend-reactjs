@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Platziwag`,
     description: `El mejor swag de platzi disponible para ti.`,
-    author: `@gatsbyjs`,
+    author: `@byron7cueva`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
