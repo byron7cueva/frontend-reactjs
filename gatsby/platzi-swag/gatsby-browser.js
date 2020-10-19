@@ -5,11 +5,16 @@
  */
 
 // You can delete this file if you're not using it
-const React = require('react')
-const Layout = require('./src/components/layout').default
+const React = require("react")
 
-exports.wrapRootElement = ({element}) => (
-    <Layout>
-        {element}
-    </Layout>
+const Layout = require("./src/components/layout").default
+const { GlobalStyles } = require("./src/styles")
+
+// #Todo lo que va encerrar este elemento a las páginas del sitio
+// Existen algunos tipos de exports documentados en el API de gatsby
+exports.wrapRootElement = ({ element }) => (
+  <>
+    <GlobalStyles />
+    <Layout>{element}</Layout>
+  </>
 )

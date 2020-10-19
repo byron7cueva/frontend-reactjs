@@ -16,7 +16,9 @@ export const above = Object.keys(size).reduce((acc, label) => {
   return acc
 }, {})
 
+// Generando estilos globales
 export const GlobalStyles = createGlobalStyle`
+  // Contenedor de toda la aplicacion que genera gatsby
   .___gatsby{
     position: absolute;
   }
