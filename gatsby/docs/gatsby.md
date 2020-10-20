@@ -130,5 +130,17 @@ gatsby new nombre
 
 
 
+## Static Query
+
+* Se puede utilizar donde sea.
+
+## Query
+
+* Se utiliza en las páginas en las rutas que terminan siendo parte de nuestro proyecto.
+* Se debe exportar.
+* También se puede utilizar en métodos del API de gatsby, como en el método createPages, donde se puede pasar información como contexto a las páginas.
+
+
+
 
 
