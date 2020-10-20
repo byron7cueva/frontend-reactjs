@@ -1,0 +1,20 @@
+query {
+  allStripePrice {
+    edges {
+      node {
+        id
+        unit_amount
+        unit_amount_decimal
+        type
+        product {
+          name
+          metadata {
+            description
+            img
+            wear
+          }
+        }
+      }
+    }
+  }
+}

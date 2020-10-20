@@ -122,5 +122,11 @@ gatsby new nombre
 
 * Tener css en javascript
 
+## Stripe
+
+### Stripe Checkout
+
+
+
 
 
