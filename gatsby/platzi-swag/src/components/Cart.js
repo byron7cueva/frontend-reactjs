@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
+import { loadStripe } from '@stripe/stripe-js'
 
 import { Button, StyledCart } from '../styles/components'
 import priceFormat from '../utils/priceFormat'
@@ -8,6 +9,17 @@ import { CartContext } from '../context'
 export default function Cart() {
   const { cart } = useContext(CartContext)
   const [total, setTotal]  = useState(0)
+  const [stripe, setStripe] = useState()
+
+  // Sustituye a los metodos de ciclo de vida de un componente
+  // componentDidMount, componentDidUpdate, componenteWillUnmount
+  // Recibe como parametros valor inicial, las actualizaciones y un callback para cuando el componente se desmonta
+  useEffect(() => {
+    loadStripe(process.env.STRIPE_PK)
+    .then(resutl => setStripe(resutl))
+
+    getTotal()
+  }, [])
 
   const getTotal = () => {
     setTotal(
@@ -15,12 +27,19 @@ export default function Cart() {
     )
   }
 
-  // Sustituye a los metodos de ciclo de vida de un componente
-  // componentDidMount, componentDidUpdate, componenteWillUnmount
-  // Recibe como parametros valor inicial, las actualizaciones y un callback para cuando el componente se desmonta
-  useEffect(() => {
-    getTotal()
-  }, [])
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: cart.map(({id, quantity}) => ({price: id, quantity})),
+      successUrl: process.env.SUCCESS_REDIRECT,
+      cancelUrl: process.env.CANCEL_REDIRECT,
+      mode: 'payment'
+    })
+
+    if (error) {
+      throw error
+    }
+  }
 
   return (
     <StyledCart>
@@ -55,7 +74,7 @@ export default function Cart() {
           <Link to="/">
             <Button type="outline">Volver</Button>
           </Link>
-          <Button>Comprar</Button>
+          <Button onClick={handleSubmit} disabled={cart.length === 0}>Comprar</Button>
         </div>
       </nav>
     </StyledCart>

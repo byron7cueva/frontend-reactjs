@@ -43,7 +43,7 @@ module.exports = {
       options: {
         // Obtener el stock de la tienda
         objects: ['Product', 'Price'],
-        secretKey: process.env.STRIPE_SECRET_KEY,
+        secretKey: process.env.STRIPE_SK,
         downloadFiles: true,
       }
     },

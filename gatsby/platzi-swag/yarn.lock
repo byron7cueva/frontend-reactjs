@@ -13421,14 +13421,6 @@ stripe@8.64.0:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
 
-stripe@^8.114.0:
-  version "8.114.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.114.0.tgz#cfdf6eb7faa1cfaa059cd8ee56d6ba5f9b152b7a"
-  integrity sha512-CaFK5aO2/gxR9kLLH7E0iL/DCPQAxTlYMYreofCqJ8AAzundZ6DdtVk0znlHpBVAEnq06SOxAQILdyDfRBr3vA==
-  dependencies:
-    "@types/node" ">=8.1.0"
-    qs "^6.6.0"
-
 style-loader@^0.23.1:
   version "0.23.1"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
