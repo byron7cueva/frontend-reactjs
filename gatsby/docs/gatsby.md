@@ -89,6 +89,8 @@ gatsby new nombre
 * Su nombre viene de nodos. Piezas de construcción del sitio.
 * Aquí sucede todo lo que refiere a Graphql y a las vistas o páginas del sitio.
 * En este punto es donde puedo tomar piezas de Graphql y generar vistas en función de la información que tenga o incluso consumir un API y dársela a Graphql generando así mis propios plugin de fuente de datos.
+* Nos permite generar nuestros propios plugins ya que tenemos acceso a createNode, donde podemos inyectar contenido al servidor Graphql.
+* Ayudarnos a generar páginas programáticamente con el método createPages.
 
 ### gatsby-ssr.js
 
